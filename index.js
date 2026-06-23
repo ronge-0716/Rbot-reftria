@@ -58,7 +58,8 @@ client.on(Events.InteractionCreate, async (interaction) => {
 client.once(Events.ClientReady, () => {
 
     const activities = [
-        'テスト中！頻繁に再起動します',
+        //'テスト中！頻繁に再起動します',
+		'試験的に参照するデータを変更しました'
     ];
 
     let i = 0;
