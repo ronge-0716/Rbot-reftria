@@ -1,6 +1,7 @@
 const {
     SlashCommandBuilder,
-    EmbedBuilder
+    EmbedBuilder,
+    MessageFlags
 } = require('discord.js');
 
 const ELEMENTS = [
@@ -133,7 +134,7 @@ module.exports = {
             return interaction.reply({
                 content:
                     '属性は6文字入力してください。\n例: 火火光光音無',
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
@@ -148,7 +149,7 @@ module.exports = {
             return interaction.reply({
                 content:
                     `不明な属性です: ${invalid}\n\n使用可能属性\n${ELEMENTS.join('、')}、無`,
-                ephemeral: true
+                flags: MessageFlags.Ephemeral
             });
         }
 
