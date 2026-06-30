@@ -129,11 +129,11 @@ module.exports = {
         const equipment =
             [...input.trim()];
 
-        if (equipment.length !== 6) {
+        if (equipment.length < 1 || equipment.length > 7) {
 
             return interaction.reply({
                 content:
-                    '属性は6文字入力してください。\n例: 火火光光音無',
+                    '属性は1～7文字入力してください。\n例: 火火光光音無 または 火火光',
                 flags: MessageFlags.Ephemeral
             });
         }
