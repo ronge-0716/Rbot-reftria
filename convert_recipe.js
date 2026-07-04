@@ -1,166 +1,106 @@
-const fs = require('fs');
-const path = require('path');
-const csv = require('csv-parser');
+const fs = require("fs");
+const path = require("path");
+
+const csvPath = path.join(__dirname, "csv", "recipes.csv");
+const outputPath = path.join(__dirname, "data", "recipes.json");
+
+const text = fs.readFileSync(csvPath, "utf8");
+
+const lines = text
+    .split(/\r?\n/)
+    .map(x => x.trim())
+    .filter(x => x);
 
 const recipes = {};
 
-const csvFolder = './csv';
+let first = true;
 
-const csvFiles = fs
-    .readdirSync(csvFolder)
-    .filter(file => file.endsWith('.csv'));
+for (const line of lines) {
 
-let processed = 0;
+    if (first) {
+        first = false;
+        continue;
+    }
 
-for (const file of csvFiles) {
+    const cols = line.split(",").map(x => x.trim());
 
-    fs.createReadStream(
-        path.join(csvFolder, file)
-    )
-        .pipe(csv())
+    const rawName = cols[0];
+    const output = Number(cols[1]);
+    const material = cols[2];
+    const count = Number(cols[3]);
 
-        .on('data', row => {
+    //----------------------------------
+    // レシピ番号取得
+    //----------------------------------
 
-            const itemName =
-                row['アイテム名']?.trim();
+    let recipeIndex = 0;
+    let product = rawName;
 
-            if (!itemName) return;
+    const match = rawName.match(/^(.*?)([B-Z])$/);
 
-            const rank =
-                row['基礎ランク']?.trim() || '';
+    if (match) {
 
-            const effect =
-                row['効果']?.trim() || '';
+        product = match[1];
 
-            const recipe = [];
+        recipeIndex =
+            match[2].charCodeAt(0) -
+            "B".charCodeAt(0) +
+            1;
 
-            for (const value of Object.values(row)) {
+    }
 
-                if (
-                    !value ||
-                    typeof value !== 'string'
-                ) continue;
+    //----------------------------------
+    // アイテム初期化
+    //----------------------------------
 
-                if (!value.includes('*'))
-                    continue;
+    if (!recipes[product]) {
 
-                const split =
-                    value.split('*');
+        recipes[product] = {
+            output,
+            recipes: []
+        };
 
-                if (split.length < 2)
-                    continue;
+    }
 
-                const material =
-                    split[0].trim();
+    //----------------------------------
+    // レシピ配列確保
+    //----------------------------------
 
-                const count =
-                    Number(split[1]) || 1;
+    while (
+        recipes[product].recipes.length <= recipeIndex
+    ) {
 
-                recipe.push({
-                    item: material,
-                    count
-                });
-            }
+        recipes[product].recipes.push([]);
 
-            if (!recipes[itemName]) {
+    }
 
-                recipes[itemName] = {
-                    rank,
-                    effect,
-                    recipes: [],
-                    usedIn: []
-                };
-            }
+    //----------------------------------
+    // 素材追加
+    //----------------------------------
 
-            recipes[itemName]
-                .recipes
-                .push(recipe);
-        })
+    recipes[product].recipes[recipeIndex].push({
 
-        .on('end', () => {
+        item: material,
+        count
 
-            processed++;
+    });
 
-            if (
-                processed !==
-                csvFiles.length
-            ) return;
-
-            //----------------------------------
-            // usedIn生成
-            //----------------------------------
-
-            for (
-                const [itemName, data]
-                of Object.entries(recipes)
-            ) {
-
-                for (
-                    const recipe
-                    of data.recipes
-                ) {
-
-                    for (
-                        const material
-                        of recipe
-                    ) {
-
-                        if (
-                            !recipes[
-                                material.item
-                            ]
-                        ) {
-
-                            recipes[
-                                material.item
-                            ] = {
-                                rank: '',
-                                effect: '',
-                                recipes: [],
-                                usedIn: []
-                            };
-                        }
-
-                        recipes[
-                            material.item
-                        ].usedIn.push(
-                            itemName
-                        );
-                    }
-                }
-            }
-
-            //----------------------------------
-            // 重複削除
-            //----------------------------------
-
-            for (
-                const data
-                of Object.values(
-                    recipes
-                )
-            ) {
-
-                data.usedIn =
-                    [
-                        ...new Set(
-                            data.usedIn
-                        )
-                    ].sort();
-            }
-
-            fs.writeFileSync(
-                './dates/recipes.json',
-                JSON.stringify(
-                    recipes,
-                    null,
-                    2
-                ),
-                'utf8'
-            );
-
-            console.log(
-                `${Object.keys(recipes).length}件のレシピを保存しました`
-            );
-        });
 }
+
+fs.writeFileSync(
+
+    outputPath,
+
+    JSON.stringify(
+        recipes,
+        null,
+        2
+    ),
+
+    "utf8"
+
+);
+
+console.log(
+    `${Object.keys(recipes).length}件のレシピを書き出しました。`
+);

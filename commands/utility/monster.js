@@ -1,14 +1,14 @@
-const {
+﻿const {
     SlashCommandBuilder,
     EmbedBuilder,
     MessageFlags
 } = require('discord.js');
 
 const monsterData =
-    require('../../dates/monsters.json');
+    require('../../data/monsters.json');
 
 const areaData =
-    require('../../dates/areas.json');
+    require('../../data/areas.json');
 
 module.exports = {
     data: new SlashCommandBuilder()

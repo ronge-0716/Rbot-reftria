@@ -59,7 +59,8 @@ client.once(Events.ClientReady, () => {
 
     const activities = [
         //'テスト中！頻繁に再起動します',
-		'試験的に参照するデータを変更しました'
+		'recipe,usedin追加',
+		'間違った情報が表示された場合は連絡をお願いします',
     ];
 
     let i = 0;

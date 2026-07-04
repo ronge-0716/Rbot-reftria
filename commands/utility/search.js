@@ -5,10 +5,10 @@ const {
 } = require('discord.js');
 
 const itemData =
-    require('../../dates/items.json');
+    require('../../data/items.json');
 
 const areaData =
-    require('../../dates/areas.json');
+    require('../../data/areas.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
