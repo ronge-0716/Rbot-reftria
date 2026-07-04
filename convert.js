@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 const areas = {};
@@ -53,6 +53,7 @@ for (const file of csvFiles) {
             first.startsWith('🌿') ||
             first.startsWith('⚓️') ||
             first.startsWith('🏴󠁧󠁢󠁳󠁣󠁴󠁿') ||
+            first.startsWith('🏚️') ||
             first.startsWith('🔨')
         ) {
 
@@ -237,7 +238,7 @@ for (const file of csvFiles) {
 }
 
 fs.writeFileSync(
-    'areas.json',
+    './data/areas.json',
     JSON.stringify(
         areas,
         null,
@@ -247,7 +248,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(
-    'dungeons.json',
+    './data/dungeons.json',
     JSON.stringify(
         dungeons,
         null,
@@ -257,7 +258,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(
-    'monsters.json',
+    './data/monsters.json',
     JSON.stringify(
         monsters,
         null,
@@ -267,7 +268,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(
-    'items.json',
+    './data/items.json',
     JSON.stringify(
         items,
         null,
