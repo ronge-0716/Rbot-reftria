@@ -95,17 +95,11 @@ module.exports = {
 
         }
 
-        const fields = [
-            {
-                name: "生成物",
-                value: String(recipe.output),
-                inline: true
-            }
-        ];
+        const fields = [];
 
         recipe.recipes.forEach((materials, index) => {
 
-            const name = index === 0? "レシピ" : `レシピ${index + 1}`;
+            const name = index === 0? "▼レシピ" : `▼レシピ${index + 1}`;
 
             fields.push({
                 name: name,
@@ -133,7 +127,7 @@ module.exports = {
                 .map(([item, count]) => `${item} ×${count}`)
                 .join("\n");
 
-            const name = index === 0? "必要素材" : `必要素材（レシピ${index + 1}）`;
+            const name = index === 0? "▼必要素材" : `▼必要素材（レシピ${index + 1}）`;
 
             materialsFields.push({
                 name: name,
@@ -144,8 +138,12 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setTitle(targetName)
             .addFields(fields)
-            //.addFields({name:"\n 必要素材", value:""})
-            .addFields(materialsFields);
+            .addFields(materialsFields)
+            .addFields({
+                name: "▼生成数",
+                value: String(recipe.output),
+                inline: true
+            });
 
         function expand(itemName, count, result) {
             const data = recipes[itemName];
