@@ -205,41 +205,10 @@ client.once(Events.ClientReady, (readyClient) => {
     setInterval(() => {
         client.user.setPresence({
             activities: [{ name: activities[i], type: 4 }],
-            status: 'offline'
+            status: 'online'
         });
         i = (i + 1) % activities.length;
     }, 10000);
-
-    setInterval(() => {
-    const shard = client.ws.shards.first();
-
-    if (!shard) return;
-
-    console.log(
-        "ready:",
-        shard.listenerCount("ready"),
-        "error:",
-        shard.listenerCount("error")
-    );
-}, 60000);
-
 });
-
-client.on("debug", console.log);
-client.on("warn", console.warn);
-
-client.on("shardDisconnect", (event, id) => {
-    console.log("Shard disconnected", id, event.code);
-});
-
-client.on("shardReconnect", id => {
-    console.log("Shard reconnect", id);
-});
-
-client.on("shardResume", (id, replayed) => {
-    console.log("Shard resumed", id, replayed);
-});
-
-client.on("error", console.error);
 
 client.login(token);
