@@ -211,4 +211,21 @@ client.once(Events.ClientReady, (readyClient) => {
     }, 10000);
 });
 
+client.on("debug", console.log);
+client.on("warn", console.warn);
+
+client.on("shardDisconnect", (event, id) => {
+    console.log("Shard disconnected", id, event.code);
+});
+
+client.on("shardReconnect", id => {
+    console.log("Shard reconnect", id);
+});
+
+client.on("shardResume", (id, replayed) => {
+    console.log("Shard resumed", id, replayed);
+});
+
+client.on("error", console.error);
+
 client.login(token);
