@@ -14,28 +14,39 @@ module.exports = {
 
     async execute(interaction) {
         const ownerId = interaction.user.id;
-        const row = new ActionRowBuilder().addComponents(
-            new ButtonBuilder()
-                .setCustomId(`selector:recipe:${ownerId}`)
-                .setLabel('レシピ検索')
-                .setStyle(ButtonStyle.Primary),
-            new ButtonBuilder()
-                .setCustomId(`selector:search:${ownerId}`)
-                .setLabel('アイテム検索')
-                .setStyle(ButtonStyle.Secondary),
-            new ButtonBuilder()
-                .setCustomId(`selector:monster:${ownerId}`)
-                .setLabel('モンスター検索')
-                .setStyle(ButtonStyle.Secondary),
-            new ButtonBuilder()
-                .setCustomId(`selector:attribute:${ownerId}`)
-                .setLabel('属性検索')
-                .setStyle(ButtonStyle.Secondary),
-            new ButtonBuilder()
-                .setCustomId(`selector:usedin:${ownerId}`)
-                .setLabel('使用先検索')
-                .setStyle(ButtonStyle.Secondary)
-        );
+        const row1 = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+        .setCustomId(`selector:recipe:${ownerId}`)
+        .setLabel('レシピ検索')
+        .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+        .setCustomId(`selector:search:${ownerId}`)
+        .setLabel('アイテムドロップ検索')
+        .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+        .setCustomId(`selector:monster:${ownerId}`)
+        .setLabel('モンスター検索')
+        .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+        .setCustomId(`selector:attribute:${ownerId}`)
+        .setLabel('属性計算')
+        .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+        .setCustomId(`selector:usedin:${ownerId}`)
+        .setLabel('アイテム使用先検索')
+        .setStyle(ButtonStyle.Secondary)
+);
+
+const row2 = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+        .setCustomId(`selector:dungeon:${ownerId}`)
+        .setLabel('ダンジョン情報')
+        .setStyle(ButtonStyle.Secondary)
+);
 
         const embed = new EmbedBuilder()
             .setTitle('コマンド選択')
@@ -43,14 +54,12 @@ module.exports = {
 
         try {
             await interaction.deferReply({ flags: MessageFlags.Ephemeral });
-            await interaction.editReply({ embeds: [embed], components: [row] });
+            await interaction.editReply({
+    embeds: [embed],
+    components: [row1, row2]
+});
         } catch (error) {
             console.error(error);
-            try {
-                await interaction.user.send({ embeds: [embed], components: [row] });
-            } catch (dmError) {
-                console.error(dmError);
-            }
         }
     }
 };

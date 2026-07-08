@@ -45,42 +45,48 @@ client.on(Events.MessageCreate, async (message) => {
     if (normalizedText !== SELECTOR_TRIGGER_TEXT.toLowerCase()) return;
 
     const ownerId = message.author.id;
-    const row = new ActionRowBuilder().addComponents(
-        new ButtonBuilder()
-            .setCustomId(`selector:recipe:${ownerId}`)
-            .setLabel('レシピ検索')
-            .setStyle(ButtonStyle.Primary),
-        new ButtonBuilder()
-            .setCustomId(`selector:search:${ownerId}`)
-            .setLabel('アイテム検索')
-            .setStyle(ButtonStyle.Secondary),
-        new ButtonBuilder()
-            .setCustomId(`selector:monster:${ownerId}`)
-            .setLabel('モンスター検索')
-            .setStyle(ButtonStyle.Secondary),
-        new ButtonBuilder()
-            .setCustomId(`selector:attribute:${ownerId}`)
-            .setLabel('属性検索')
-            .setStyle(ButtonStyle.Secondary),
-        new ButtonBuilder()
-            .setCustomId(`selector:usedin:${ownerId}`)
-            .setLabel('使用先検索')
-            .setStyle(ButtonStyle.Secondary)
-    );
+    const row1 = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+        .setCustomId(`selector:recipe:${ownerId}`)
+        .setLabel('レシピ検索')
+        .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+        .setCustomId(`selector:search:${ownerId}`)
+        .setLabel('アイテムドロップ検索')
+        .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+        .setCustomId(`selector:monster:${ownerId}`)
+        .setLabel('モンスター検索')
+        .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+        .setCustomId(`selector:attribute:${ownerId}`)
+        .setLabel('属性計算')
+        .setStyle(ButtonStyle.Secondary),
+
+    new ButtonBuilder()
+        .setCustomId(`selector:usedin:${ownerId}`)
+        .setLabel('アイテム使用先検索')
+        .setStyle(ButtonStyle.Secondary)
+);
+
+const row2 = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+        .setCustomId(`selector:dungeon:${ownerId}`)
+        .setLabel('ダンジョン情報')
+        .setStyle(ButtonStyle.Secondary)
+);
 
     const embed = new EmbedBuilder()
         .setTitle('コマンド選択')
         .setDescription('実行したいコマンドを選択してください。');
 
     try {
-        await message.channel.send({ embeds: [embed], components: [row] });
+        await message.channel.send({ embeds: [embed], components: [row1, row2] });
     } catch (error) {
         console.error(error);
-        try {
-            await message.reply('selector の起動に失敗しました。');
-        } catch (replyError) {
-            console.error(replyError);
-        }
     }
 });
 
