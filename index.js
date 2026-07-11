@@ -15,6 +15,7 @@ const {
     ButtonStyle
 } = require('discord.js');
 const { token } = require('./config.json');
+require("./scheduler");
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
@@ -46,38 +47,38 @@ client.on(Events.MessageCreate, async (message) => {
 
     const ownerId = message.author.id;
     const row1 = new ActionRowBuilder().addComponents(
-    new ButtonBuilder()
-        .setCustomId(`selector:recipe:${ownerId}`)
-        .setLabel('レシピ検索')
-        .setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder()
+            .setCustomId(`selector:recipe:${ownerId}`)
+            .setLabel('レシピ検索')
+            .setStyle(ButtonStyle.Secondary),
 
-    new ButtonBuilder()
-        .setCustomId(`selector:search:${ownerId}`)
-        .setLabel('アイテムドロップ検索')
-        .setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder()
+            .setCustomId(`selector:search:${ownerId}`)
+            .setLabel('アイテムドロップ検索')
+            .setStyle(ButtonStyle.Secondary),
 
-    new ButtonBuilder()
-        .setCustomId(`selector:monster:${ownerId}`)
-        .setLabel('モンスター検索')
-        .setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder()
+            .setCustomId(`selector:monster:${ownerId}`)
+            .setLabel('モンスター検索')
+            .setStyle(ButtonStyle.Secondary),
 
-    new ButtonBuilder()
-        .setCustomId(`selector:attribute:${ownerId}`)
-        .setLabel('属性計算')
-        .setStyle(ButtonStyle.Secondary),
+        new ButtonBuilder()
+            .setCustomId(`selector:attribute:${ownerId}`)
+            .setLabel('属性計算')
+            .setStyle(ButtonStyle.Secondary),
 
-    new ButtonBuilder()
-        .setCustomId(`selector:usedin:${ownerId}`)
-        .setLabel('アイテム使用先検索')
-        .setStyle(ButtonStyle.Secondary)
-);
+        new ButtonBuilder()
+            .setCustomId(`selector:usedin:${ownerId}`)
+            .setLabel('アイテム使用先検索')
+            .setStyle(ButtonStyle.Secondary)
+    );
 
-const row2 = new ActionRowBuilder().addComponents(
-    new ButtonBuilder()
-        .setCustomId(`selector:dungeon:${ownerId}`)
-        .setLabel('ダンジョン情報')
-        .setStyle(ButtonStyle.Secondary)
-);
+    const row2 = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+            .setCustomId(`selector:dungeon:${ownerId}`)
+            .setLabel('ダンジョン情報')
+            .setStyle(ButtonStyle.Secondary)
+    );
 
     const embed = new EmbedBuilder()
         .setTitle('コマンド選択')
@@ -203,7 +204,7 @@ client.once(Events.ClientReady, (readyClient) => {
 
     const activities = [
         'recipe,usedin,selector追加',
-		'データ更新 7/5',
+        'データ更新 7/5',
         '間違った情報が表示された場合は連絡をお願いします'
     ];
 

@@ -38,9 +38,33 @@ for (const file of csvFiles) {
         const cols = line
             .split(',')
             .map(x => x.trim())
-            .filter(Boolean);
+            .filter(x => x !== '');
 
         if (cols.length === 0) continue;
+
+        // ----------------------------------
+        // CSV正規化
+        // ----------------------------------
+
+        // 「採　取」「採取（釣り）」→「採取」
+        cols[0] = cols[0]
+            .replace(/採\s*取（釣り）/g, '採取')
+            .replace(/採\s*取/g, '採取');
+
+        // AP情報を含むセルを削除
+        for (let i = cols.length - 1; i >= 1; i--) {
+            if (/AP/i.test(cols[i])) {
+                cols.splice(i, 1);
+            }
+        }
+
+        // 「敵なし」は無視
+        if (cols[0] === '敵なし') {
+            continue;
+        }
+
+        // ダンジョン名の前後の空白を除去
+        cols[0] = cols[0].trim();
 
         const first = cols[0];
 
@@ -54,6 +78,9 @@ for (const file of csvFiles) {
             first.startsWith('⚓️') ||
             first.startsWith('🏴󠁧󠁢󠁳󠁣󠁴󠁿') ||
             first.startsWith('🏚️') ||
+            first.startsWith('🌳') ||
+            first.startsWith('🔮') ||
+            first.startsWith('🕍') ||
             first.startsWith('🔨')
         ) {
 
@@ -110,7 +137,11 @@ for (const file of csvFiles) {
 
             const gatherItems = cols.slice(1);
 
-            for (const itemName of gatherItems) {
+            for (const item of gatherItems) {
+
+                const itemName = item.trim();
+
+                if (!itemName) continue;
 
                 addUnique(
                     dungeons[currentDungeon].gathering,
@@ -151,7 +182,7 @@ for (const file of csvFiles) {
             cols.length >= 2
         ) {
 
-            const monsterName = cols[0];
+            const monsterName = cols[0].trim();
             const drops = cols.slice(1);
 
             addUnique(
