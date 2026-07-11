@@ -203,8 +203,8 @@ client.once(Events.ClientReady, (readyClient) => {
     console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 
     const activities = [
-        'recipe,usedin,selector追加',
-        'データ更新 7/5',
+        'スプレッドシート自動読み取りに変更',
+        '10分ごとにデータ更新',
         '間違った情報が表示された場合は連絡をお願いします'
     ];
 
