@@ -112,15 +112,18 @@ module.exports = {
         const materialsFields = [];
 
         recipe.recipes.forEach((oneRecipe, index) => {
+            
             const result = {};
 
-            for (const material of oneRecipe) {
-                expand(
-                    material.item,
-                    material.count,
-                    result
-                );
-            }
+for (const material of oneRecipe) {
+
+    calculateMaterials(
+        material.item,
+        material.count,
+        result
+    );
+
+}
 
             const text = Object.entries(result)
                 .sort((a, b) => a[0].localeCompare(b[0], "ja"))
@@ -145,26 +148,37 @@ module.exports = {
                 inline: true
             });
 
-        function expand(itemName, count, result) {
-            const data = recipes[itemName];
+        function calculateMaterials(itemName, needCount, result) {
 
-            if (!data || !data.recipes || data.recipes.length === 0) {
-                result[itemName] = (result[itemName] || 0) + count;
-                return;
-            }
+    const data = recipes[itemName];
 
-            const recipeData = data.recipes[0];
-            const output = data.output || 1;
-            const multiplier = count / output;
+    // クラフトできない
+    if (!data || !data.recipes || data.recipes.length === 0) {
 
-            for (const material of recipeData) {
-                expand(
-                    material.item,
-                    material.count * multiplier,
-                    result
-                );
-            }
-        }
+        result[itemName] = (result[itemName] || 0) + needCount;
+        return;
+
+    }
+
+    // 今はレシピ1を使用
+    const recipe = data.recipes[0];
+
+    // 必要クラフト回数
+    const craftCount = Math.ceil(
+        needCount / (data.output || 1)
+    );
+
+    for (const material of recipe) {
+
+        calculateMaterials(
+            material.item,
+            material.count * craftCount,
+            result
+        );
+
+    }
+
+}
 
         await interaction.reply({
             embeds: [embed]

@@ -34,6 +34,26 @@ module.exports = {
                         '属性被ダメージ倍率を計算\n例: `/attribute 属性:火火光光音無`'
                 },
                 {
+                    name: '/recipe',
+                    value:
+                        'レシピを検索\n例: `/recipe recipe:ロッド`'
+                },
+                {
+                    name: '/usedin',
+                    value:
+                        'アイテムの使用先を検索\n例: `/usedin item:コケ`'
+                },
+                {
+                    name: '/dungeon',
+                    value:
+                        'ダンジョンの情報を検索\n例: `/dungeon dungeon:珊瑚の祠`'
+                },
+                {
+                    name: '/selector (「リフペ」と発言でも可)',
+                    value:
+                        'コマンド選択のボタンを表示'
+                },
+                {
                     name: '/help',
                     value:
                         'このヘルプを表示'
