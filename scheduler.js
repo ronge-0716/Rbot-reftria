@@ -46,4 +46,4 @@ async function updateData() {
 
 updateData();
 
-cron.schedule("0 * * * *", updateData);
+cron.schedule("*/10 * * * *", updateData);
