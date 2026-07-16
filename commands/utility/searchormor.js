@@ -140,7 +140,7 @@ module.exports = {
 
         evaluated.sort((a, b) => a.average - b.average);
 
-        const top = evaluated.slice(0, 15);
+        const top = evaluated.slice(0, 10);
 
         const lines = top.map((x, i) => {
 
@@ -162,7 +162,7 @@ module.exports = {
                     const avg =
                         arr.reduce((a, b) => a + b, 0) / arr.length;
 
-                    return `${element}:${(avg * 100).toFixed(1)}%`;
+                    return `${element}:${(avg * 100).toFixed(2)}%`;
 
                 })
                 .join(" ");
@@ -177,7 +177,7 @@ module.exports = {
                 `装備部位: ${slotCount}\n敵属性: ${targets.join('')}`
             )
             .addFields({
-                name: '上位15件',
+                name: '上位10件',
                 value: lines.join('\n\n')
             });
 
