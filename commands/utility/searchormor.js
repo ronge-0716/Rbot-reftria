@@ -172,14 +172,10 @@ module.exports = {
         });
 
         const embed = new EmbedBuilder()
-            .setTitle('防具属性構成例')
+            .setTitle("最適防具属性構成")
             .setDescription(
-                `装備部位: ${slotCount}\n敵属性: ${targets.join('')}`
-            )
-            .addFields({
-                name: '上位10件',
-                value: lines.join('\n\n')
-            });
+                `装備部位: ${slotCount}\n敵属性: ${targets.join("")}\n\n${lines.join("\n\n")}`
+            );
 
         await interaction.reply({
             embeds: [embed]
