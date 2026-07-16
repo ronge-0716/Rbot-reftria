@@ -155,19 +155,20 @@ module.exports = {
 
             const shown = [...new Set(targets)];
 
-            const detail = shown
-                .map(element => {
+            // const detail = shown
+            //     .map(element => {
 
-                    const arr = x.damages[element];
-                    const avg =
-                        arr.reduce((a, b) => a + b, 0) / arr.length;
+            //         const arr = x.damages[element];
+            //         const avg =
+            //             arr.reduce((a, b) => a + b, 0) / arr.length;
 
-                    return `${element}:${(avg * 100).toFixed(2)}%`;
+            //         return `${element}:${(avg * 100).toFixed(2)}%`;
 
-                })
-                .join(" ");
+            //     })
+            //     .join(" ");
+            const detail = "";
 
-            return `${i + 1}位 (${(x.average * 100).toFixed(2)}%) ${equip}　${detail}`;
+            return `${i + 1}位 (計${(x.average * 100).toFixed(2)}%) ${equip}　${detail}`;
 
         });
 
