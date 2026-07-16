@@ -77,6 +77,11 @@ client.on(Events.MessageCreate, async (message) => {
         new ButtonBuilder()
             .setCustomId(`selector:dungeon:${ownerId}`)
             .setLabel('ダンジョン情報')
+            .setStyle(ButtonStyle.Secondary),
+
+        new ButtonBuilder()
+            .setCustomId(`selector:searcharmor:${ownerId}`)
+            .setLabel('防具組み合わせ例')
             .setStyle(ButtonStyle.Secondary)
     );
 
@@ -145,18 +150,62 @@ client.on(Events.InteractionCreate, async (interaction) => {
             return;
         }
 
-        const modal = new ModalBuilder()
-            .setCustomId(`selector-modal:${commandName}`)
-            .setTitle('検索キーワードを入力');
+        if (commandName === "searcharmor") {
 
-        const input = new TextInputBuilder()
-            .setCustomId('keyword')
-            .setLabel('検索したい内容')
-            .setStyle(TextInputStyle.Short)
-            .setRequired(true);
+            const command = interaction.client.commands.get(commandName);
 
-        modal.addComponents(new ActionRowBuilder().addComponents(input));
-        await interaction.showModal(modal);
+            if (!command) {
+                await interaction.reply({
+                    content: "対象コマンドが見つかりません。"
+                });
+                return;
+            }
+
+            const modal = new ModalBuilder()
+                .setCustomId("selector-modal:searcharmor")
+                .setTitle("防具組み合わせ検索");
+
+            const slotInput = new TextInputBuilder()
+                .setCustomId("slot")
+                .setLabel("装備部位数（6または7）")
+                .setStyle(TextInputStyle.Short)
+                .setPlaceholder("7")
+                .setRequired(true);
+
+            const enemyInput = new TextInputBuilder()
+                .setCustomId("enemy")
+                .setLabel("敵属性")
+                .setStyle(TextInputStyle.Short)
+                .setPlaceholder("火火土")
+                .setRequired(true);
+
+            modal.addComponents(
+                new ActionRowBuilder().addComponents(slotInput),
+                new ActionRowBuilder().addComponents(enemyInput)
+            );
+
+            await interaction.showModal(modal);
+
+        } else {
+
+            const modal = new ModalBuilder()
+                .setCustomId(`selector-modal:${commandName}`)
+                .setTitle('検索キーワードを入力');
+
+            const input = new TextInputBuilder()
+                .setCustomId('keyword')
+                .setLabel('検索したい内容')
+                .setStyle(TextInputStyle.Short)
+                .setRequired(true);
+
+            modal.addComponents(
+                new ActionRowBuilder().addComponents(input)
+            );
+
+            await interaction.showModal(modal);
+
+        }
+
         try {
             await interaction.message.delete();
         } catch (error) {
@@ -169,13 +218,44 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
     if (interaction.isModalSubmit() && interaction.customId.startsWith('selector-modal:')) {
         const [, commandName] = interaction.customId.split(':');
-        const keyword = interaction.fields.getTextInputValue('keyword');
         const command = interaction.client.commands.get(commandName);
 
         if (!command) {
             await interaction.reply({ content: '対象コマンドが見つかりません。' });
             return;
         }
+
+        if (commandName === "searcharmor") {
+
+            const slot =
+                parseInt(
+                    interaction.fields.getTextInputValue("slot")
+                );
+
+            const enemy =
+                interaction.fields.getTextInputValue("enemy");
+
+            const fakeInteraction = {
+                ...interaction,
+                options: {
+                    getInteger: (name) => {
+                        if (name === "部位") return slot;
+                        return null;
+                    },
+                    getString: (name) => {
+                        if (name === "敵属性") return enemy;
+                        return null;
+                    }
+                },
+                reply: async payload => interaction.reply(payload),
+                followUp: async payload => interaction.followUp(payload)
+            };
+
+            await command.execute(fakeInteraction);
+            return;
+        }
+
+        const keyword = interaction.fields.getTextInputValue('keyword');
 
         const fakeInteraction = {
             ...interaction,
