@@ -15,7 +15,7 @@ const {
     ButtonStyle
 } = require('discord.js');
 const { token } = require('./config.json');
-require("./scheduler");
+require("./scripts/scheduler");
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]

@@ -3,7 +3,7 @@ const {
     EmbedBuilder
 } = require("discord.js");
 
-const monsters = require("../../data/monsters.json");
+const loadJson = require("../../utils/load");
 
 module.exports = {
 
@@ -32,11 +32,11 @@ module.exports = {
 
             for (const dungeonList of Object.values(monster.spawns)) {
 
-    dungeonList.forEach(dungeon => {
-        dungeons.add(dungeon);
-    });
+                dungeonList.forEach(dungeon => {
+                    dungeons.add(dungeon);
+                });
 
-}
+            }
 
         });
 
@@ -58,6 +58,8 @@ module.exports = {
 
     async execute(interaction) {
 
+        const monsters = loadJson("monsters.json");
+
         const keyword = interaction.options
             .getString("name")
             .trim()
@@ -71,11 +73,11 @@ module.exports = {
 
             for (const dungeonList of Object.values(monster.spawns)) {
 
-    dungeonList.forEach(dungeon => {
-        dungeonNames.add(dungeon);
-    });
+                dungeonList.forEach(dungeon => {
+                    dungeonNames.add(dungeon);
+                });
 
-}
+            }
 
         });
 
@@ -124,14 +126,14 @@ module.exports = {
 
             for (const dungeonList of Object.values(monster.spawns)) {
 
-    if (dungeonList.includes(dungeon)) {
+                if (dungeonList.includes(dungeon)) {
 
-        exists = true;
-        break;
+                    exists = true;
+                    break;
 
-    }
+                }
 
-}
+            }
 
             if (!exists) continue;
 

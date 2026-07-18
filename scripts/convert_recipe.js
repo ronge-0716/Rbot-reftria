@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 
-const csvPath = path.join(__dirname, "csv", "recipes.csv");
-const outputPath = path.join(__dirname, "data", "recipes.json");
+const csvPath = path.join(__dirname, "..", "csv", "recipes.csv");
+const outputPath = path.join(__dirname, "..", "data", "recipes.json");
 
 const text = fs.readFileSync(csvPath, "utf8");
 

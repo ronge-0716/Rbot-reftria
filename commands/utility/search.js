@@ -4,11 +4,7 @@ const {
     MessageFlags
 } = require('discord.js');
 
-const itemData =
-    require('../../data/items.json');
-
-const areaData =
-    require('../../data/areas.json');
+const loadJson = require("../../utils/load");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -25,6 +21,9 @@ module.exports = {
 
     async execute(interaction) {
 
+        const items = loadJson("items.json");
+        const areas = loadJson("areas.json");
+
         const searchWord =
             interaction.options
                 .getString('item')
@@ -33,7 +32,7 @@ module.exports = {
         let matches = [];
 
         // 完全一致
-        matches = Object.keys(itemData)
+        matches = Object.keys(items)
             .filter(name =>
                 name.toLowerCase() ===
                 searchWord.toLowerCase()
@@ -42,7 +41,7 @@ module.exports = {
         // 前方一致
         if (matches.length === 0) {
 
-            matches = Object.keys(itemData)
+            matches = Object.keys(items)
                 .filter(name =>
                     name.toLowerCase()
                         .startsWith(
@@ -54,7 +53,7 @@ module.exports = {
         // 部分一致
         if (matches.length === 0) {
 
-            matches = Object.keys(itemData)
+            matches = Object.keys(items)
                 .filter(name =>
                     name.toLowerCase()
                         .includes(
@@ -95,7 +94,7 @@ module.exports = {
         }
 
         const itemName = matches[0];
-        const item = itemData[itemName];
+        const item = items[itemName];
 
         //--------------------------------
         // 地域→ダンジョン単位へ変換
@@ -139,7 +138,7 @@ module.exports = {
 
                 if (
                     !dungeonMap[
-                        spawn.region
+                    spawn.region
                     ]
                 ) {
 
@@ -150,7 +149,7 @@ module.exports = {
 
                 if (
                     !dungeonMap[
-                        spawn.region
+                    spawn.region
                     ][spawn.dungeon]
                 ) {
 
@@ -176,7 +175,7 @@ module.exports = {
 
         let areaText = '';
 
-        for (const region of Object.keys(areaData)) {
+        for (const region of Object.keys(areas)) {
 
             const dungeons =
                 dungeonMap[region];
@@ -186,7 +185,7 @@ module.exports = {
             areaText += `【${region}】\n`;
 
             const orderedDungeons =
-                areaData[region].dungeons;
+                areas[region].dungeons;
 
             // areas.jsonの順番
             for (const dungeon of orderedDungeons) {
@@ -200,10 +199,9 @@ module.exports = {
                     `${dungeon}\n`;
 
                 areaText +=
-                    `採取 ${
-                        info.gather
-                            ? '○'
-                            : '×'
+                    `採取 ${info.gather
+                        ? '○'
+                        : '×'
                     }\n`;
 
                 if (
@@ -254,10 +252,9 @@ module.exports = {
                     `${dungeon}\n`;
 
                 areaText +=
-                    `採取 ${
-                        info.gather
-                            ? '○'
-                            : '×'
+                    `採取 ${info.gather
+                        ? '○'
+                        : '×'
                     }\n`;
 
                 if (

@@ -6,7 +6,7 @@ const dungeons = {};
 const monsters = {};
 const items = {};
 
-const csvFolder = './csv';
+const csvFolder = path.join(__dirname, "..", "csv");
 
 const csvFiles = fs
     .readdirSync(csvFolder)
@@ -269,7 +269,7 @@ for (const file of csvFiles) {
 }
 
 fs.writeFileSync(
-    './data/areas.json',
+    path.join(__dirname, "..", "data", "areas.json"),
     JSON.stringify(
         areas,
         null,
@@ -279,7 +279,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(
-    './data/dungeons.json',
+    path.join(__dirname, "..", "data", "dungeons.json"),
     JSON.stringify(
         dungeons,
         null,
@@ -289,7 +289,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(
-    './data/monsters.json',
+    path.join(__dirname, "..", "data", "monsters.json"),
     JSON.stringify(
         monsters,
         null,
@@ -299,7 +299,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(
-    './data/items.json',
+    path.join(__dirname, "..", "data", "items.json"),
     JSON.stringify(
         items,
         null,

@@ -12,7 +12,7 @@ async function updateData() {
 
         console.log("CSV更新完了");
 
-        exec("node convert.js", (err, stdout, stderr) => {
+        exec("node scripts/convert.js", (err, stdout, stderr) => {
 
             if (err) {
                 console.error("convert.js エラー:", err);
@@ -21,7 +21,7 @@ async function updateData() {
 
             console.log(stdout);
 
-            exec("node convert_recipe.js", (err2, stdout2, stderr2) => {
+            exec("node scripts/convert_recipe.js", (err2, stdout2, stderr2) => {
 
                 if (err2) {
                     console.error("convert_recipe.js エラー:", err2);

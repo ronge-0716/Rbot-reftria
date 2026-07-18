@@ -4,11 +4,7 @@
     MessageFlags
 } = require('discord.js');
 
-const monsterData =
-    require('../../data/monsters.json');
-
-const areaData =
-    require('../../data/areas.json');
+const loadJson = require("../../utils/load");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -25,6 +21,9 @@ module.exports = {
 
     async execute(interaction) {
 
+        const monsters = loadJson("monsters.json");
+        const areas = loadJson("areas.json");
+
         const searchWord =
             interaction.options
                 .getString('name')
@@ -33,7 +32,7 @@ module.exports = {
         let matches = [];
 
         // 完全一致
-        matches = Object.keys(monsterData)
+        matches = Object.keys(monsters)
             .filter(name =>
                 name.toLowerCase() ===
                 searchWord.toLowerCase()
@@ -42,7 +41,7 @@ module.exports = {
         // 前方一致
         if (matches.length === 0) {
 
-            matches = Object.keys(monsterData)
+            matches = Object.keys(monsters)
                 .filter(name =>
                     name.toLowerCase()
                         .startsWith(
@@ -54,7 +53,7 @@ module.exports = {
         // 部分一致
         if (matches.length === 0) {
 
-            matches = Object.keys(monsterData)
+            matches = Object.keys(monsters)
                 .filter(name =>
                     name.toLowerCase()
                         .includes(
@@ -98,7 +97,7 @@ module.exports = {
             matches[0];
 
         const monster =
-            monsterData[monsterName];
+            monsters[monsterName];
 
         let areaText = '';
 
@@ -106,7 +105,7 @@ module.exports = {
         // areas.json順で表示
         //--------------------------------
 
-        for (const region of Object.keys(areaData)) {
+        for (const region of Object.keys(areas)) {
 
             const spawnDungeons =
                 monster.spawns?.[region];
@@ -122,7 +121,7 @@ module.exports = {
                 `【${region}】\n`;
 
             const orderedDungeons =
-                areaData[region].dungeons;
+                areas[region].dungeons;
 
             // areas.jsonに登録された順
             for (const dungeon of orderedDungeons) {

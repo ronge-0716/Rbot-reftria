@@ -3,7 +3,7 @@
     EmbedBuilder
 } = require("discord.js");
 
-const recipes = require("../../data/recipes.json");
+const loadJson = require("../../utils/load");
 
 module.exports = {
 
@@ -38,6 +38,8 @@ module.exports = {
     },
 
     async execute(interaction) {
+
+        const recipes = loadJson("recipes.json");
 
         const keyword = interaction.options
             .getString("item")
@@ -99,7 +101,7 @@ module.exports = {
 
         recipe.recipes.forEach((materials, index) => {
 
-            const name = index === 0? "▼レシピ" : `▼レシピ${index + 1}`;
+            const name = index === 0 ? "▼レシピ" : `▼レシピ${index + 1}`;
 
             fields.push({
                 name: name,
@@ -112,25 +114,25 @@ module.exports = {
         const materialsFields = [];
 
         recipe.recipes.forEach((oneRecipe, index) => {
-            
+
             const result = {};
 
-for (const material of oneRecipe) {
+            for (const material of oneRecipe) {
 
-    calculateMaterials(
-        material.item,
-        material.count,
-        result
-    );
+                calculateMaterials(
+                    material.item,
+                    material.count,
+                    result
+                );
 
-}
+            }
 
             const text = Object.entries(result)
                 .sort((a, b) => a[0].localeCompare(b[0], "ja"))
                 .map(([item, count]) => `${item} ×${count}`)
                 .join("\n");
 
-            const name = index === 0? "▼必要素材" : `▼必要素材（レシピ${index + 1}）`;
+            const name = index === 0 ? "▼必要素材" : `▼必要素材（レシピ${index + 1}）`;
 
             materialsFields.push({
                 name: name,
@@ -150,35 +152,35 @@ for (const material of oneRecipe) {
 
         function calculateMaterials(itemName, needCount, result) {
 
-    const data = recipes[itemName];
+            const data = recipes[itemName];
 
-    // クラフトできない
-    if (!data || !data.recipes || data.recipes.length === 0) {
+            // クラフトできない
+            if (!data || !data.recipes || data.recipes.length === 0) {
 
-        result[itemName] = (result[itemName] || 0) + needCount;
-        return;
+                result[itemName] = (result[itemName] || 0) + needCount;
+                return;
 
-    }
+            }
 
-    // 今はレシピ1を使用
-    const recipe = data.recipes[0];
+            // 今はレシピ1を使用
+            const recipe = data.recipes[0];
 
-    // 必要クラフト回数
-    const craftCount = Math.ceil(
-        needCount / (data.output || 1)
-    );
+            // 必要クラフト回数
+            const craftCount = Math.ceil(
+                needCount / (data.output || 1)
+            );
 
-    for (const material of recipe) {
+            for (const material of recipe) {
 
-        calculateMaterials(
-            material.item,
-            material.count * craftCount,
-            result
-        );
+                calculateMaterials(
+                    material.item,
+                    material.count * craftCount,
+                    result
+                );
 
-    }
+            }
 
-}
+        }
 
         await interaction.reply({
             embeds: [embed]

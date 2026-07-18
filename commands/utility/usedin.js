@@ -3,7 +3,7 @@ const {
     EmbedBuilder
 } = require("discord.js");
 
-const recipes = require("../../data/recipes.json");
+const loadJson = require("../../utils/load");
 
 module.exports = {
 
@@ -58,6 +58,8 @@ module.exports = {
     },
 
     async execute(interaction) {
+
+        const recipes = loadJson("recipes.json");
 
         const keyword = interaction.options
             .getString("item")
