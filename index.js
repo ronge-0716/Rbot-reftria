@@ -42,7 +42,7 @@ for (const folder of commandFolders) {
 client.on(Events.MessageCreate, async (message) => {
     if (message.author.bot) return;
 
-    const normalizedText = message.content.trim().toLowerCase();
+    const normalizedText = message.content.trim().toLowerCase().replace(/[ぁ-ゖ]/g, c => String.fromCharCode(c.charCodeAt(0) + 0x60));
     if (normalizedText !== SELECTOR_TRIGGER_TEXT.toLowerCase()) return;
 
     const ownerId = message.author.id;
@@ -283,7 +283,7 @@ client.once(Events.ClientReady, (readyClient) => {
     console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 
     const activities = [
-        'スプレッドシート自動読み取りに変更',
+        'コマンド一覧は/help',
         '10分ごとにデータ更新',
         '間違った情報が表示された場合は連絡をお願いします'
     ];
