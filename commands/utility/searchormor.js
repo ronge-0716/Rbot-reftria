@@ -168,7 +168,7 @@ module.exports = {
             //     .join(" ");
             const detail = "";
 
-            return `${i + 1}位 (計${(x.average * 100).toFixed(2)}%) ${equip}　${detail}`;
+            return `${i + 1}位 (平均${(x.average * 100).toFixed(2)}%) ${equip}　${detail}`;
 
         });
 
