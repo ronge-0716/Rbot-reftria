@@ -42,10 +42,6 @@ for (const file of csvFiles) {
 
         if (cols.length === 0) continue;
 
-        // ----------------------------------
-        // CSV正規化
-        // ----------------------------------
-
         // 「採　取」「採取（釣り）」→「採取」
         cols[0] = cols[0]
             .replace(/採\s*取（釣り）/g, '採取')
@@ -67,10 +63,6 @@ for (const file of csvFiles) {
         cols[0] = cols[0].trim();
 
         const first = cols[0];
-
-        //----------------------------------
-        // 地域
-        //----------------------------------
 
         if (
             first.startsWith('🏰') ||
@@ -98,10 +90,6 @@ for (const file of csvFiles) {
             continue;
         }
 
-        //----------------------------------
-        // ダンジョン
-        //----------------------------------
-
         if (
             cols.length === 1 &&
             currentRegion
@@ -125,10 +113,6 @@ for (const file of csvFiles) {
 
             continue;
         }
-
-        //----------------------------------
-        // 採取
-        //----------------------------------
 
         if (
             first === '採取' &&
@@ -173,10 +157,6 @@ for (const file of csvFiles) {
             continue;
         }
 
-        //----------------------------------
-        // モンスター
-        //----------------------------------
-
         if (
             currentDungeon &&
             cols.length >= 2
@@ -189,10 +169,6 @@ for (const file of csvFiles) {
                 dungeons[currentDungeon].monsters,
                 monsterName
             );
-
-            //------------------------------
-            // monsters.json
-            //------------------------------
 
             if (!monsters[monsterName]) {
 
@@ -223,10 +199,6 @@ for (const file of csvFiles) {
                     monsters[monsterName].drops,
                     drop
                 );
-
-                //--------------------------
-                // items.json
-                //--------------------------
 
                 if (!items[drop]) {
 

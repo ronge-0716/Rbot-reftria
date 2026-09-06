@@ -15,7 +15,9 @@ const {
     ButtonStyle
 } = require('discord.js');
 const { token } = require('./config.json');
-require("./scripts/scheduler");
+const {
+    startScheduler
+} = require("./scripts/scheduler");
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
@@ -282,6 +284,8 @@ client.on(Events.InteractionCreate, async (interaction) => {
 client.once(Events.ClientReady, (readyClient) => {
     console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 
+    startScheduler(client);
+
     const activities = [
         'コマンド一覧は/help',
         '10分ごとにデータ更新',
@@ -315,4 +319,5 @@ client.on("shardResume", (id, replayed) => {
 
 client.on("error", console.error);
 
+startScheduler(client);
 client.login(token);

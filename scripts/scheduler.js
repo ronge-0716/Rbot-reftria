@@ -1,49 +1,73 @@
-const cron = require("node-cron");
-const { downloadAllSheets } = require("./download");
-const { exec } = require("child_process");
+const cron = require('node-cron');
+const { exec } = require('child_process');
+
+const { downloadAllSheets } = require('./download');
+const { checkUpdates, sendLatestUpdate } = require('./checkUpdates');
 
 async function updateData() {
-
     try {
-
-        console.log("CSV更新開始");
+        console.log('データ更新開始');
 
         await downloadAllSheets();
 
-        console.log("CSV更新完了");
+        await new Promise((resolve, reject) => {
+            exec('node scripts/convert.js', (error, stdout, stderr) => {
+                if (stdout) console.log(stdout);
+                if (stderr) console.error(stderr);
 
-        exec("node scripts/convert.js", (err, stdout, stderr) => {
-
-            if (err) {
-                console.error("convert.js エラー:", err);
-                return;
-            }
-
-            console.log(stdout);
-
-            exec("node scripts/convert_recipe.js", (err2, stdout2, stderr2) => {
-
-                if (err2) {
-                    console.error("convert_recipe.js エラー:", err2);
+                if (error) {
+                    reject(error);
                     return;
                 }
 
-                console.log(stdout2);
-
-                console.log("JSON更新完了");
-
+                resolve();
             });
-
         });
 
-    } catch (e) {
+        await new Promise((resolve, reject) => {
+            exec('node scripts/convert_recipe.js', (error, stdout, stderr) => {
+                if (stdout) console.log(stdout);
+                if (stderr) console.error(stderr);
 
-        console.error(e);
+                if (error) {
+                    reject(error);
+                    return;
+                }
 
+                resolve();
+            });
+        });
+
+        console.log('データ更新完了');
+
+    } catch (error) {
+        console.error('データ更新エラー:', error);
     }
-
 }
 
-updateData();
 
-cron.schedule("*/10 * * * *", updateData);
+function startScheduler(client) {
+
+    updateData();
+
+    sendLatestUpdate(client);
+
+    // 10分ごとにデータ更新
+    cron.schedule('*/10 * * * *', () => {
+        updateData();
+    });
+
+    // 毎朝6:00に更新情報をチェック
+    cron.schedule('0 6 * * *', () => {
+        checkUpdates(client);
+    }, {
+        timezone: 'Asia/Tokyo'
+    });
+
+    console.log('Scheduler started.');
+}
+
+
+module.exports = {
+    startScheduler
+};

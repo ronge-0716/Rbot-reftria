@@ -29,10 +29,6 @@ for (const line of lines) {
     const material = cols[2];
     const count = Number(cols[3]);
 
-    //----------------------------------
-    // レシピ番号取得
-    //----------------------------------
-
     let recipeIndex = 0;
     let product = rawName;
 
@@ -49,10 +45,6 @@ for (const line of lines) {
 
     }
 
-    //----------------------------------
-    // アイテム初期化
-    //----------------------------------
-
     if (!recipes[product]) {
 
         recipes[product] = {
@@ -62,10 +54,6 @@ for (const line of lines) {
 
     }
 
-    //----------------------------------
-    // レシピ配列確保
-    //----------------------------------
-
     while (
         recipes[product].recipes.length <= recipeIndex
     ) {
@@ -73,10 +61,6 @@ for (const line of lines) {
         recipes[product].recipes.push([]);
 
     }
-
-    //----------------------------------
-    // 素材追加
-    //----------------------------------
 
     recipes[product].recipes[recipeIndex].push({
 
