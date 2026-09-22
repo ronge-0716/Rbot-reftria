@@ -104,8 +104,8 @@ client.on(Events.MessageCreate, async (message) => {
 });
 
 const VOICE_CHANNEL_NOTIFICATIONS = {
-    '1513554939257819173': '1513554939257819172',
-    '1513554939551678642': '645431154819989504',
+    '1513554939257819173': '1513554939257819172',//くラジオ
+    '1513554939551678642': '1513554939551678641',//バックヤード
 };
 
 client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
