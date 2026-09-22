@@ -3,7 +3,7 @@ const path = require('node:path');
 
 const UPDATE_URL = 'https://rpg-reftria.com/api/system/news';
 
-const CHANNEL_ID = '1521494699121049621';
+const CHANNEL_ID = '650975683098443777';
 
 const STATE_PATH = path.join(__dirname, 'updateState.json');
 
@@ -41,9 +41,7 @@ async function checkUpdates(client) {
             };
 
             for (const article of articles) {
-                state.articles[article.id] = {
-                    updated_at: article.updated_at
-                };
+                state.articles[article.id] = article;
             }
 
             fs.writeFileSync(
@@ -83,9 +81,7 @@ async function checkUpdates(client) {
 
         // 現在の状態を保存
         for (const article of articles) {
-            state.articles[article.id] = {
-                updated_at: article.updated_at
-            };
+            state.articles[article.id] = article;
         }
 
         fs.writeFileSync(

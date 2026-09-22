@@ -20,7 +20,12 @@ const {
 } = require("./scripts/scheduler");
 
 const client = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildVoiceStates
+    ]
 });
 client.commands = new Collection();
 
@@ -95,6 +100,65 @@ client.on(Events.MessageCreate, async (message) => {
         await message.channel.send({ embeds: [embed], components: [row1, row2] });
     } catch (error) {
         console.error(error);
+    }
+});
+
+const VOICE_CHANNEL_NOTIFICATIONS = {
+    '735780909848068148': '645431154819989504',
+    '650210792058388500': '645431154819989504',
+    '1135800591550005308': '645431154819989504'
+};
+
+client.on(Events.VoiceStateUpdate, async (oldState, newState) => {
+    // Botは無視
+    if (newState.member?.user.bot) return;
+
+    // 入室
+    if (
+        oldState.channelId !== newState.channelId &&
+        newState.channelId &&
+        VOICE_CHANNEL_NOTIFICATIONS[newState.channelId]
+    ) {
+        const notifyChannelId =
+            VOICE_CHANNEL_NOTIFICATIONS[newState.channelId];
+
+        try {
+            const notifyChannel =
+                await client.channels.fetch(notifyChannelId);
+
+            if (!notifyChannel) return;
+
+            await notifyChannel.send(
+                `🔊 **${newState.member.displayName}** がボイスチャンネルに参加しました。`
+            );
+        } catch (error) {
+            console.error('ボイスチャンネル入室通知エラー:', error);
+        }
+
+        return;
+    }
+
+    // 退出
+    if (
+        oldState.channelId &&
+        newState.channelId !== oldState.channelId &&
+        VOICE_CHANNEL_NOTIFICATIONS[oldState.channelId]
+    ) {
+        const notifyChannelId =
+            VOICE_CHANNEL_NOTIFICATIONS[oldState.channelId];
+
+        try {
+            const notifyChannel =
+                await client.channels.fetch(notifyChannelId);
+
+            if (!notifyChannel) return;
+
+            await notifyChannel.send(
+                `🚪 **${oldState.member.displayName}** がボイスチャンネルから退出しました。`
+            );
+        } catch (error) {
+            console.error('ボイスチャンネル退出通知エラー:', error);
+        }
     }
 });
 
@@ -319,5 +383,5 @@ client.on("shardResume", (id, replayed) => {
 
 client.on("error", console.error);
 
-startScheduler(client);
+//startScheduler(client);
 client.login(token);

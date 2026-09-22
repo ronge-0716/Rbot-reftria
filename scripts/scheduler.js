@@ -50,7 +50,8 @@ function startScheduler(client) {
 
     updateData();
 
-    sendLatestUpdate(client);
+    checkUpdates(client);
+    //sendLatestUpdate(client);
 
     // 10分ごとにデータ更新
     cron.schedule('*/10 * * * *', () => {
