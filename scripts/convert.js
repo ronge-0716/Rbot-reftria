@@ -316,6 +316,11 @@ function loadMonsterData() {
                 ? Number(hpText)
                 : null;
 
+        const memo =
+            memoIndex >= 0
+                ? (row[memoIndex] || '').trim() || null
+                : null;
+
         const dropText =
             (row[dropsIndex] || '').trim();
 
@@ -328,6 +333,7 @@ function loadMonsterData() {
             monsters[monsterName] = {
                 hp: null,
                 attribute: null,
+                memo: null,
                 spawns: {},
                 drops: []
             };
@@ -356,6 +362,17 @@ function loadMonsterData() {
                     `[警告] ${monsterName} の属性が一致しません: ${monster.attribute} / ${attribute}`
                 );
                 monster.attribute = null;
+            }
+        }
+
+        if (memo !== null) {
+            if (monster.memo === null) {
+                monster.memo = memo;
+            } else if (monster.memo !== memo) {
+                console.warn(
+                    `[警告] ${monsterName} の備考が一致しません: ${monster.memo} / ${memo}`
+                );
+                monster.memo = null;
             }
         }
 

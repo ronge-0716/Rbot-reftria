@@ -2,6 +2,7 @@
   "ウサギ": {
     "hp": 12,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "ミント林"
@@ -23,6 +24,7 @@
   "キラービー": {
     "hp": 15,
     "attribute": "木",
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "ミント林"
@@ -45,6 +47,7 @@
   "野良犬": {
     "hp": 20,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "ミント林"
@@ -70,6 +73,7 @@
   "毒ヘビ": {
     "hp": 14,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "ミント林"
@@ -91,6 +95,7 @@
   "毒グモ": {
     "hp": 16,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "ミント林"
@@ -114,6 +119,7 @@
   "アルラウネ": {
     "hp": 50,
     "attribute": null,
+    "memo": "出現低確率",
     "spawns": {
       "リーフィア": [
         "ミント林"
@@ -128,6 +134,7 @@
   "オーク": {
     "hp": 40,
     "attribute": "木",
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "ミント林"
@@ -141,6 +148,7 @@
   "音晶精霊": {
     "hp": 170,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "共鳴の回廊"
@@ -154,6 +162,7 @@
   "沈黙のゴーレム": {
     "hp": 650,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "共鳴の回廊"
@@ -167,6 +176,7 @@
   "吸収スライム": {
     "hp": 950,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "共鳴の回廊"
@@ -179,6 +189,7 @@
   "エコーバット": {
     "hp": 165,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "共鳴の回廊"
@@ -191,6 +202,7 @@
   "ミルキーモス": {
     "hp": 175,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "共鳴の回廊"
@@ -204,6 +216,7 @@
   "調和の精霊": {
     "hp": 190,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "共鳴の回廊"
@@ -217,6 +230,7 @@
   "サンダーインプ": {
     "hp": 175,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "共鳴の回廊"
@@ -230,6 +244,7 @@
   "星の篝火": {
     "hp": 160,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "共鳴の回廊"
@@ -240,6 +255,7 @@
   "不和霊士": {
     "hp": 220,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "共鳴の回廊"
@@ -250,6 +266,7 @@
   "天球竜": {
     "hp": 240,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "共鳴の回廊"
@@ -260,6 +277,7 @@
   "サイレンスロード": {
     "hp": 1770,
     "attribute": null,
+    "memo": "BOSS",
     "spawns": {
       "リーフィア": [
         "共鳴の回廊"
@@ -270,6 +288,7 @@
   "毒ガエル": {
     "hp": 18,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "薬香の森",
@@ -286,6 +305,7 @@
   "棘ツタ": {
     "hp": 25,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "薬香の森",
@@ -303,6 +323,7 @@
   "蔓蛇": {
     "hp": 170,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "精霊の森"
@@ -318,6 +339,7 @@
   "菌獣": {
     "hp": 180,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "精霊の森"
@@ -333,6 +355,7 @@
   "棘の精霊": {
     "hp": 185,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "精霊の森"
@@ -349,6 +372,7 @@
   "古代トレント": {
     "hp": 210,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "精霊の森"
@@ -364,6 +388,7 @@
   "森の精霊": {
     "hp": 175,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "精霊の森"
@@ -378,6 +403,7 @@
   "カラフアゲハ": {
     "hp": 155,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "精霊の森"
@@ -392,6 +418,7 @@
   "モスゴーレム": {
     "hp": 200,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "精霊の森"
@@ -408,6 +435,7 @@
   "風の妖精": {
     "hp": 160,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "精霊の森"
@@ -424,6 +452,7 @@
   "エルダドリアード": {
     "hp": 205,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "精霊の森"
@@ -440,6 +469,7 @@
   "霊狐": {
     "hp": 190,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ハーブレン": [
         "精霊の森"
@@ -457,6 +487,7 @@
   "精霊王": {
     "hp": 620,
     "attribute": "木",
+    "memo": "BOSS",
     "spawns": {
       "ハーブレン": [
         "精霊の森"
@@ -474,6 +505,7 @@
   "ウミネコ": {
     "hp": 12,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "潮風草地",
@@ -492,6 +524,7 @@
   "砂ガニ": {
     "hp": 20,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "潮風草地",
@@ -511,6 +544,7 @@
   "トレント": {
     "hp": 55,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "海霧の林",
@@ -529,6 +563,7 @@
   "スライム": {
     "hp": 18,
     "attribute": "水",
+    "memo": null,
     "spawns": {
       "マリス港": [
         "マリス浅瀬"
@@ -546,6 +581,7 @@
   "海妖": {
     "hp": 75,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "珊瑚の祠"
@@ -559,6 +595,7 @@
   "セイレーン": {
     "hp": 50,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "珊瑚の祠"
@@ -571,6 +608,7 @@
   "貝の幽霊": {
     "hp": 65,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "珊瑚の祠"
@@ -584,6 +622,7 @@
   "潮の精": {
     "hp": 70,
     "attribute": "水",
+    "memo": null,
     "spawns": {
       "マリス港": [
         "珊瑚の祠"
@@ -598,6 +637,7 @@
   "シーシェード": {
     "hp": 60,
     "attribute": "水",
+    "memo": null,
     "spawns": {
       "マリス港": [
         "珊瑚の祠"
@@ -611,6 +651,7 @@
   "深海の海妖": {
     "hp": 100,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "珊瑚の祠"
@@ -624,6 +665,7 @@
   "珊瑚の精霊": {
     "hp": 55,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "珊瑚の祠"
@@ -637,6 +679,7 @@
   "珊瑚の守護者": {
     "hp": 120,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "珊瑚の祠"
@@ -651,6 +694,7 @@
   "アイスバット": {
     "hp": 155,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "凍てつく氷穴"
@@ -663,6 +707,7 @@
   "氷スライム": {
     "hp": 170,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "凍てつく氷穴"
@@ -678,6 +723,7 @@
   "ゾンビフロズ": {
     "hp": 190,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "凍てつく氷穴"
@@ -690,6 +736,7 @@
   "フロストベア": {
     "hp": 205,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "マリス港": [
         "凍てつく氷穴"
@@ -699,9 +746,85 @@
       "とがった牙"
     ]
   },
+  "氷柱蟲": {
+    "hp": 185,
+    "attribute": null,
+    "memo": null,
+    "spawns": {
+      "マリス港": [
+        "凍てつく氷穴"
+      ]
+    },
+    "drops": []
+  },
+  "霜狼": {
+    "hp": 185,
+    "attribute": null,
+    "memo": null,
+    "spawns": {
+      "マリス港": [
+        "凍てつく氷穴"
+      ]
+    },
+    "drops": []
+  },
+  "クリスパイダー": {
+    "hp": 175,
+    "attribute": null,
+    "memo": null,
+    "spawns": {
+      "マリス港": [
+        "凍てつく氷穴"
+      ]
+    },
+    "drops": []
+  },
+  "霜の巨人": {
+    "hp": 230,
+    "attribute": null,
+    "memo": null,
+    "spawns": {
+      "マリス港": [
+        "凍てつく氷穴"
+      ]
+    },
+    "drops": [
+      "永久凍土",
+      "石",
+      "氷の結晶"
+    ]
+  },
+  "ブリズホーク": {
+    "hp": 195,
+    "attribute": null,
+    "memo": null,
+    "spawns": {
+      "マリス港": [
+        "凍てつく氷穴"
+      ]
+    },
+    "drops": [
+      "凍った涙",
+      "永久凍土",
+      "氷の結晶",
+      "海鳥の羽"
+    ]
+  },
+  "雪の精霊": {
+    "hp": 180,
+    "attribute": null,
+    "memo": null,
+    "spawns": {
+      "マリス港": [
+        "凍てつく氷穴"
+      ]
+    },
+    "drops": []
+  },
   "氷穴の女王": {
     "hp": 670,
     "attribute": null,
+    "memo": "BOSS",
     "spawns": {
       "マリス港": [
         "凍てつく氷穴"
@@ -714,58 +837,10 @@
       "水晶"
     ]
   },
-  "霜狼": {
-    "hp": 185,
-    "attribute": null,
-    "spawns": {
-      "マリス港": [
-        "凍てつく氷穴"
-      ]
-    },
-    "drops": []
-  },
-  "クリスパイダー": {
-    "hp": 175,
-    "attribute": null,
-    "spawns": {},
-    "drops": []
-  },
-  "霜の巨人": {
-    "hp": 230,
-    "attribute": null,
-    "spawns": {},
-    "drops": [
-      "永久凍土",
-      "石",
-      "氷の結晶"
-    ]
-  },
-  "ブリズホーク": {
-    "hp": 195,
-    "attribute": null,
-    "spawns": {},
-    "drops": [
-      "凍った涙",
-      "永久凍土",
-      "氷の結晶",
-      "海鳥の羽"
-    ]
-  },
-  "雪の精霊": {
-    "hp": 180,
-    "attribute": null,
-    "spawns": {},
-    "drops": []
-  },
-  "氷柱蟲": {
-    "hp": 185,
-    "attribute": null,
-    "spawns": {},
-    "drops": []
-  },
   "バット": {
     "hp": 10,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "枯れ木帯",
@@ -784,6 +859,7 @@
   "ブラックバット": {
     "hp": 14,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "枯れ木帯",
@@ -805,6 +881,7 @@
   "ゴブリン": {
     "hp": 22,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "枯れ木帯",
@@ -824,6 +901,7 @@
   "岩蟲": {
     "hp": 30,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "枯れ木帯",
@@ -842,6 +920,7 @@
   "ゾンビ": {
     "hp": 35,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "枯れ木帯"
@@ -861,6 +940,7 @@
   "オーガ": {
     "hp": 60,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "枯れ木帯"
@@ -875,6 +955,7 @@
   "毒ムカデ": {
     "hp": 80,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "赤錆坑道"
@@ -890,6 +971,7 @@
   "ノーム": {
     "hp": 65,
     "attribute": null,
+    "memo": "出現低確率",
     "spawns": {
       "ガルド坑都": [
         "赤錆坑道",
@@ -907,6 +989,7 @@
   "ゴーレム": {
     "hp": 100,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "クリスタルケイヴ"
@@ -920,6 +1003,7 @@
   "アイアンゴーレム": {
     "hp": 130,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "クリスタルケイヴ"
@@ -930,6 +1014,7 @@
   "魔岩這い": {
     "hp": 90,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "魔鉱の洞窟"
@@ -943,6 +1028,7 @@
   "炎の精霊": {
     "hp": 70,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "魔鉱の洞窟"
@@ -956,6 +1042,7 @@
   "ルーンバット": {
     "hp": 60,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "魔鉱の洞窟"
@@ -969,6 +1056,7 @@
   "アースファントム": {
     "hp": 85,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "魔鉱の洞窟"
@@ -983,6 +1071,7 @@
   "ルーンスピリット": {
     "hp": 75,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "魔鉱の洞窟"
@@ -995,6 +1084,7 @@
   "ルーンスペクター": {
     "hp": 140,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "魔鉱の洞窟"
@@ -1008,6 +1098,7 @@
   "水晶の幽霊": {
     "hp": 80,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "魔鉱の洞窟"
@@ -1021,6 +1112,7 @@
   "マグマゴーレム": {
     "hp": 160,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "魔鉱の洞窟"
@@ -1034,6 +1126,7 @@
   "ファイアドレイク": {
     "hp": 240,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "灼熱鉱山"
@@ -1047,6 +1140,7 @@
   "フレイムリザード": {
     "hp": 180,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "灼熱鉱山"
@@ -1061,6 +1155,7 @@
   "炎の小鬼": {
     "hp": 165,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "灼熱鉱山"
@@ -1071,6 +1166,7 @@
   "灰の亡霊A": {
     "hp": 175,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "灼熱鉱山"
@@ -1086,6 +1182,7 @@
   "黒曜ゴーレム": {
     "hp": 220,
     "attribute": "土",
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "灼熱鉱山"
@@ -1100,6 +1197,7 @@
   "溶岩蟲（α）": {
     "hp": 195,
     "attribute": null,
+    "memo": "同名別個体が黒石帯にいる",
     "spawns": {
       "ガルド坑都": [
         "灼熱鉱山"
@@ -1113,6 +1211,7 @@
   "溶岩ナメクジ": {
     "hp": 190,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "灼熱鉱山"
@@ -1126,6 +1225,7 @@
   "ボルケナバット": {
     "hp": 160,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "灼熱鉱山"
@@ -1142,6 +1242,7 @@
   "火蜘蛛": {
     "hp": 170,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "灼熱鉱山"
@@ -1156,6 +1257,7 @@
   "サラマンダー": {
     "hp": 215,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ガルド坑都": [
         "灼熱鉱山"
@@ -1170,6 +1272,7 @@
   "火山王": {
     "hp": 720,
     "attribute": null,
+    "memo": "BOSS",
     "spawns": {
       "ガルド坑都": [
         "灼熱鉱山"
@@ -1180,6 +1283,7 @@
   "大蜘蛛": {
     "hp": 60,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "獣牙の森"
@@ -1197,6 +1301,7 @@
   "ダイアウルフ": {
     "hp": 65,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "獣牙の森"
@@ -1215,6 +1320,7 @@
   "ウルフ": {
     "hp": 30,
     "attribute": "木",
+    "memo": null,
     "spawns": {
       "リーフィア": [
         "ミント林"
@@ -1235,6 +1341,7 @@
   "影獣": {
     "hp": 85,
     "attribute": null,
+    "memo": "出現低確率",
     "spawns": {
       "グレイウォール": [
         "獣牙の森"
@@ -1251,6 +1358,7 @@
   "ワイト": {
     "hp": 70,
     "attribute": "闇？",
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "ロスト・グロティア"
@@ -1268,6 +1376,7 @@
   "骸骨戦士": {
     "hp": 65,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "ロスト・グロティア"
@@ -1285,6 +1394,7 @@
   "鉱蛾": {
     "hp": 35,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "ロスト・グロティア"
@@ -1302,6 +1412,7 @@
   "デスナイト": {
     "hp": 90,
     "attribute": null,
+    "memo": "出現低確率",
     "spawns": {
       "グレイウォール": [
         "ロスト・グロティア"
@@ -1317,6 +1428,7 @@
   "リッチ": {
     "hp": 80,
     "attribute": null,
+    "memo": "出現低確率",
     "spawns": {
       "グレイウォール": [
         "ロスト・グロティア"
@@ -1329,6 +1441,7 @@
   "ヴァインゴーレム": {
     "hp": 100,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "崩落深坑"
@@ -1342,6 +1455,7 @@
   "骸骨衛兵": {
     "hp": 80,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "崩落深坑"
@@ -1355,6 +1469,7 @@
   "腐敗魔": {
     "hp": 95,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "崩落深坑"
@@ -1368,6 +1483,7 @@
   "怨霊": {
     "hp": 85,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "崩落深坑"
@@ -1382,6 +1498,7 @@
   "マインスピネル": {
     "hp": 85,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "崩落深坑"
@@ -1395,6 +1512,7 @@
   "闇死霊": {
     "hp": null,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "崩落深坑"
@@ -1409,6 +1527,7 @@
   "アビススパイダー": {
     "hp": 75,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "崩落深坑"
@@ -1421,6 +1540,7 @@
   "死の番人": {
     "hp": null,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "崩落深坑"
@@ -1434,6 +1554,7 @@
   "冥府魔術師": {
     "hp": null,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "崩落深坑"
@@ -1447,6 +1568,7 @@
   "ヴォイドウルフ": {
     "hp": 70,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "崩落深坑"
@@ -1460,6 +1582,7 @@
   "崩落王": {
     "hp": null,
     "attribute": null,
+    "memo": "出現低確率",
     "spawns": {
       "グレイウォール": [
         "崩落深坑"
@@ -1470,6 +1593,7 @@
   "影の大司祭": {
     "hp": 155,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "影の聖域"
@@ -1484,6 +1608,7 @@
   "ダークスペクター": {
     "hp": null,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "影の聖域"
@@ -1498,6 +1623,7 @@
   "影の従者": {
     "hp": null,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "影の聖域"
@@ -1511,6 +1637,7 @@
   "サイレンサー": {
     "hp": 105,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "影の聖域"
@@ -1524,6 +1651,7 @@
   "魂喰らい": {
     "hp": 88,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "影の聖域"
@@ -1537,6 +1665,7 @@
   "ヴァスフルグ": {
     "hp": 90,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "影の聖域"
@@ -1550,6 +1679,7 @@
   "カーズファントム": {
     "hp": 95,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "影の聖域"
@@ -1563,6 +1693,7 @@
   "フレイソヴリン": {
     "hp": 140,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "グレイウォール": [
         "影の聖域"
@@ -1577,6 +1708,7 @@
   "墓場ネズミ": {
     "hp": 80,
     "attribute": null,
+    "memo": "１F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1591,6 +1723,7 @@
   "ダストバット": {
     "hp": 70,
     "attribute": null,
+    "memo": "２F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1605,6 +1738,7 @@
   "岩ガニ": {
     "hp": 110,
     "attribute": null,
+    "memo": "３F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1615,6 +1749,7 @@
   "シャドウハウンド": {
     "hp": 95,
     "attribute": "闇？",
+    "memo": "４F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1625,6 +1760,7 @@
   "骸骨の斥候": {
     "hp": 90,
     "attribute": "闇？",
+    "memo": "５F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1635,6 +1771,7 @@
   "ゾンビブラウ": {
     "hp": 130,
     "attribute": null,
+    "memo": "５F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1645,6 +1782,7 @@
   "マグマデロン": {
     "hp": 85,
     "attribute": null,
+    "memo": "７F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1655,6 +1793,7 @@
   "ヘックスパイダー": {
     "hp": 100,
     "attribute": null,
+    "memo": "８F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1665,6 +1804,7 @@
   "ルーンウォーリアー": {
     "hp": 140,
     "attribute": "闇？",
+    "memo": "９F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1675,6 +1815,7 @@
   "ハウンドヴォイ": {
     "hp": 110,
     "attribute": "闇？",
+    "memo": "１０F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1685,6 +1826,7 @@
   "ビッグアイアンゴーレム": {
     "hp": 170,
     "attribute": null,
+    "memo": "１１F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1695,6 +1837,7 @@
   "カースナイト": {
     "hp": 140,
     "attribute": null,
+    "memo": "１２F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1705,6 +1848,7 @@
   "ソウルイーター": {
     "hp": 130,
     "attribute": null,
+    "memo": "１３F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1715,6 +1859,7 @@
   "デスウルフ": {
     "hp": 120,
     "attribute": null,
+    "memo": "１４F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1725,6 +1870,7 @@
   "クリスタルゴーレム": {
     "hp": 160,
     "attribute": null,
+    "memo": "１５F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1735,6 +1881,7 @@
   "デッドナイト": {
     "hp": 170,
     "attribute": null,
+    "memo": "１６F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1745,6 +1892,7 @@
   "虚空の魔術師": {
     "hp": 130,
     "attribute": null,
+    "memo": "１７F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1755,6 +1903,7 @@
   "マントルゴーレム": {
     "hp": 220,
     "attribute": null,
+    "memo": "１８F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1765,6 +1914,7 @@
   "シェイドロード": {
     "hp": 160,
     "attribute": null,
+    "memo": "１９F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1775,6 +1925,7 @@
   "ボーンドラゴン": {
     "hp": 200,
     "attribute": null,
+    "memo": "２０F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1785,6 +1936,7 @@
   "堕落した聖騎士": {
     "hp": 210,
     "attribute": "闇？",
+    "memo": "２１F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1795,6 +1947,7 @@
   "ルーンタイタン": {
     "hp": 250,
     "attribute": null,
+    "memo": "２２F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1805,6 +1958,7 @@
   "混沌の魔女": {
     "hp": 170,
     "attribute": null,
+    "memo": "２３F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1815,6 +1969,7 @@
   "疫病の亡霊": {
     "hp": 190,
     "attribute": null,
+    "memo": "２４F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1825,6 +1980,7 @@
   "深淵の悪魔": {
     "hp": 220,
     "attribute": null,
+    "memo": "２５F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1835,6 +1991,7 @@
   "ダイアウルフ・エイプ": {
     "hp": 200,
     "attribute": null,
+    "memo": "２６F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1845,6 +2002,7 @@
   "マザータラント": {
     "hp": 180,
     "attribute": null,
+    "memo": "２７F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1855,6 +2013,7 @@
   "ビスターノーグ": {
     "hp": 220,
     "attribute": null,
+    "memo": "２８F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1865,6 +2024,7 @@
   "エイプゴーレム": {
     "hp": 280,
     "attribute": null,
+    "memo": "２９F",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1875,6 +2035,7 @@
   "アビスロード": {
     "hp": 1000,
     "attribute": null,
+    "memo": "３０F・BOSS",
     "spawns": {
       "グレイウォール": [
         "深淵の塔"
@@ -1885,6 +2046,7 @@
   "古代骸骨兵": {
     "hp": 154,
     "attribute": "闇",
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "マグニス街道"
@@ -1895,6 +2057,7 @@
   "アッシュラット": {
     "hp": 126,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "マグニス街道"
@@ -1905,6 +2068,7 @@
   "ミアズ・ハウンド": {
     "hp": 196,
     "attribute": "闇",
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "マグニス街道"
@@ -1915,6 +2079,7 @@
   "ルイズ・オーガ": {
     "hp": 245,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "マグニス街道"
@@ -1925,6 +2090,7 @@
   "黄昏蝙蝠": {
     "hp": 112,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "マグニス街道"
@@ -1935,6 +2101,7 @@
   "グレイウルフ": {
     "hp": 175,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "マグニス街道"
@@ -1945,6 +2112,7 @@
   "アシュリースパイダー": {
     "hp": 140,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "マグニス街道"
@@ -1955,6 +2123,7 @@
   "遺跡の番人": {
     "hp": 294,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "マグニス街道"
@@ -1965,6 +2134,7 @@
   "フォグ・ウルフ": {
     "hp": 203,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "霧深い森"
@@ -1975,6 +2145,7 @@
   "霧蛇": {
     "hp": 179,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "霧深い森"
@@ -1985,6 +2156,7 @@
   "シャドウ・モスビム": {
     "hp": 156,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "霧深い森"
@@ -1995,6 +2167,7 @@
   "モスゴレン": {
     "hp": 273,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "霧深い森"
@@ -2005,6 +2178,7 @@
   "靄の亡霊": {
     "hp": 218,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "霧深い森"
@@ -2015,6 +2189,7 @@
   "朝霧のトレント": {
     "hp": 234,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "霧深い森"
@@ -2029,6 +2204,7 @@
   "エシ・グリズリー": {
     "hp": 312,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "霧深い森"
@@ -2039,6 +2215,7 @@
   "原始の精霊": {
     "hp": 250,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "霧深い森"
@@ -2049,6 +2226,7 @@
   "火砕竜": {
     "hp": 328,
     "attribute": null,
+    "memo": "＋やけど攻撃",
     "spawns": {
       "灰の宿場": [
         "黒石帯"
@@ -2059,6 +2237,7 @@
   "溶岩蟲（β）": {
     "hp": 218,
     "attribute": null,
+    "memo": "同名別個体が灼熱鉱山にいる",
     "spawns": {
       "灰の宿場": [
         "黒石帯"
@@ -2069,6 +2248,7 @@
   "ハゲワシ": {
     "hp": 156,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "黒石帯"
@@ -2081,6 +2261,7 @@
   "黒サソリ": {
     "hp": 187,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "黒石帯"
@@ -2091,6 +2272,7 @@
   "溶岩トカゲ": {
     "hp": 172,
     "attribute": null,
+    "memo": "＋やけど攻撃",
     "spawns": {
       "灰の宿場": [
         "黒石帯"
@@ -2101,6 +2283,7 @@
   "黒曜石の哨兵": {
     "hp": 250,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "黒石帯"
@@ -2111,6 +2294,7 @@
   "鉄甲虫": {
     "hp": 234,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "灰の宿場": [
         "黒石帯"
@@ -2124,6 +2308,7 @@
   "赤鉄鉱の亡霊鉱夫": {
     "hp": 294,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "赤鉄鉱脈"
@@ -2134,6 +2319,7 @@
   "坑道コウモリ": {
     "hp": 168,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "赤鉄鉱脈"
@@ -2144,6 +2330,7 @@
   "アダマンの守り手": {
     "hp": 378,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "赤鉄鉱脈"
@@ -2154,6 +2341,7 @@
   "鉱石甲虫": {
     "hp": 235,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "赤鉄鉱脈"
@@ -2164,6 +2352,7 @@
   "岩サソリ": {
     "hp": 269,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "赤鉄鉱脈"
@@ -2174,6 +2363,7 @@
   "火口の残兵": {
     "hp": 368,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "溶岩帯"
@@ -2184,6 +2374,7 @@
   "ファイヤドレイク": {
     "hp": 350,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "溶岩帯"
@@ -2194,6 +2385,7 @@
   "フレイムサーペント": {
     "hp": 322,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "溶岩帯"
@@ -2204,6 +2396,7 @@
   "溶岩竜": {
     "hp": 442,
     "attribute": "光or火",
+    "memo": "＋やけど攻撃",
     "spawns": {
       "カルデラ砦": [
         "溶岩帯"
@@ -2214,6 +2407,7 @@
   "灰燼の幻影": {
     "hp": 384,
     "attribute": "闇",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "灰燼の高地"
@@ -2229,6 +2423,7 @@
   "高原のワイバーン": {
     "hp": 432,
     "attribute": "風？",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "灰燼の高地"
@@ -2239,6 +2434,7 @@
   "星屑のゴーレム": {
     "hp": 480,
     "attribute": "星",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "灰燼の高地"
@@ -2249,6 +2445,7 @@
   "葛根獣": {
     "hp": 403,
     "attribute": "木？",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "灰燼の高地"
@@ -2263,6 +2460,7 @@
   "古代の歩哨": {
     "hp": 528,
     "attribute": "無？",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "灰燼の高地"
@@ -2275,6 +2473,7 @@
   "炎の精": {
     "hp": 600,
     "attribute": "火？",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "溶岩の心臓"
@@ -2287,6 +2486,7 @@
   "黒曜石の騎士": {
     "hp": 750,
     "attribute": "火？",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "溶岩の心臓"
@@ -2300,6 +2500,7 @@
   "灰の亡霊B": {
     "hp": 550,
     "attribute": "火？",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "溶岩の心臓"
@@ -2312,6 +2513,7 @@
   "灼熱ゴーレム": {
     "hp": 900,
     "attribute": "火？",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "溶岩の心臓"
@@ -2324,6 +2526,7 @@
   "火山ワイバーン": {
     "hp": 700,
     "attribute": "火？",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "溶岩の心臓"
@@ -2334,6 +2537,7 @@
   "火竜王サラマンダー": {
     "hp": 1300,
     "attribute": "火？",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "溶岩の心臓"
@@ -2344,6 +2548,7 @@
   "溶岩蛇": {
     "hp": 650,
     "attribute": "火？",
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "溶岩の心臓"
@@ -2354,6 +2559,7 @@
   "インフェルノロード": {
     "hp": 1100,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "溶岩の心臓"
@@ -2364,6 +2570,7 @@
   "溶岩の心臓獣": {
     "hp": 2800,
     "attribute": "火？",
+    "memo": "BOSS",
     "spawns": {
       "カルデラ砦": [
         "溶岩の心臓"
@@ -2374,6 +2581,7 @@
   "ヴォルカニム": {
     "hp": 8501,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "旧王国の熔炉"
@@ -2384,6 +2592,7 @@
   "ドラグニル": {
     "hp": 7245,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "カルデラ砦": [
         "旧王国の熔炉"
@@ -2394,6 +2603,7 @@
   "エルデ・トレント": {
     "hp": 319,
     "attribute": "木？",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "樹海の小径"
@@ -2404,6 +2614,7 @@
   "エルデ・フェアリー": {
     "hp": 235,
     "attribute": "木？",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "樹海の小径"
@@ -2414,6 +2625,7 @@
   "エルデ・ウルフ": {
     "hp": 336,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "樹海の小径"
@@ -2424,6 +2636,7 @@
   "樹海のドリアード": {
     "hp": 294,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "樹海の小径"
@@ -2434,6 +2647,7 @@
   "樹海の蔓蛇": {
     "hp": 252,
     "attribute": "木？",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "樹海の小径"
@@ -2444,6 +2658,7 @@
   "マッシュマン": {
     "hp": 269,
     "attribute": "無？",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "樹海の小径"
@@ -2454,6 +2669,7 @@
   "腐敗ゴーレム": {
     "hp": 352,
     "attribute": "無？",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "アテケロ沼"
@@ -2464,6 +2680,7 @@
   "猛毒ガエル": {
     "hp": 282,
     "attribute": "無？",
+    "memo": "毒攻撃",
     "spawns": {
       "エルデの樹海": [
         "アテケロ沼"
@@ -2474,6 +2691,7 @@
   "コブラ": {
     "hp": 308,
     "attribute": null,
+    "memo": "毒攻撃",
     "spawns": {
       "エルデの樹海": [
         "アテケロ沼"
@@ -2484,6 +2702,7 @@
   "血吸いビル": {
     "hp": 246,
     "attribute": "無？",
+    "memo": "毒攻撃",
     "spawns": {
       "エルデの樹海": [
         "アテケロ沼"
@@ -2494,6 +2713,7 @@
   "ヒュドラ": {
     "hp": 422,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "アテケロ沼"
@@ -2504,6 +2724,7 @@
   "水晶蝶": {
     "hp": 258,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "精霊の泉"
@@ -2514,6 +2735,7 @@
   "泉の精霊": {
     "hp": 322,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "精霊の泉"
@@ -2524,6 +2746,7 @@
   "虹色ガエル": {
     "hp": 276,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "精霊の泉"
@@ -2534,6 +2757,7 @@
   "守護のトレント": {
     "hp": 386,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "精霊の泉"
@@ -2544,6 +2768,7 @@
   "リリラウネ": {
     "hp": 580,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "タタン地下迷宮"
@@ -2554,6 +2779,7 @@
   "蠢く粘液": {
     "hp": 650,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "タタン地下迷宮"
@@ -2564,6 +2790,7 @@
   "アビスフライ": {
     "hp": 500,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "タタン地下迷宮"
@@ -2574,6 +2801,7 @@
   "静かなる巨像": {
     "hp": 800,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "タタン地下迷宮"
@@ -2584,6 +2812,7 @@
   "太古のトレント": {
     "hp": 700,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "タタン地下迷宮"
@@ -2594,6 +2823,7 @@
   "纏わりつく蔦": {
     "hp": 600,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "タタン地下迷宮"
@@ -2604,6 +2834,7 @@
   "堕ちた精霊": {
     "hp": 650,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "タタン地下迷宮"
@@ -2614,6 +2845,7 @@
   "太古の狼": {
     "hp": 700,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "タタン地下迷宮"
@@ -2624,6 +2856,7 @@
   "深淵の樹海王": {
     "hp": 3000,
     "attribute": null,
+    "memo": "BOSS",
     "spawns": {
       "エルデの樹海": [
         "タタン地下迷宮"
@@ -2634,6 +2867,7 @@
   "ミルフィア": {
     "hp": 4320,
     "attribute": "木",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "巨樹の根洞"
@@ -2644,6 +2878,7 @@
   "グロムヴァルド": {
     "hp": 11016,
     "attribute": "木",
+    "memo": "スタン2ターン",
     "spawns": {
       "エルデの樹海": [
         "巨樹の根洞"
@@ -2654,6 +2889,7 @@
   "ルナリエ": {
     "hp": 4560,
     "attribute": "光",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "巨樹の根洞"
@@ -2664,6 +2900,7 @@
   "ヴェスパリア": {
     "hp": 5355,
     "attribute": "風",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "巨樹の根洞"
@@ -2674,6 +2911,7 @@
   "ゼルヴァイン": {
     "hp": null,
     "attribute": "木",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "巨樹の根洞"
@@ -2684,6 +2922,7 @@
   "アルヴェリオン": {
     "hp": null,
     "attribute": "水",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "巨樹の根洞"
@@ -2694,6 +2933,7 @@
   "トルヴァーク": {
     "hp": null,
     "attribute": "木",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "巨樹の根洞"
@@ -2704,6 +2944,7 @@
   "プロムガルド": {
     "hp": 7392,
     "attribute": "土",
+    "memo": null,
     "spawns": {
       "エルデの樹海": [
         "巨樹の根洞"
@@ -2714,6 +2955,7 @@
   "虚の霧": {
     "hp": 336,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "オニキス高原"
@@ -2724,6 +2966,7 @@
   "ルーンの霊": {
     "hp": 365,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "オニキス高原"
@@ -2734,6 +2977,7 @@
   "深化の亡霊": {
     "hp": 432,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "オニキス高原"
@@ -2744,6 +2988,7 @@
   "グリモワルム": {
     "hp": null,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "オニキス高原"
@@ -2754,6 +2999,7 @@
   "封印されし守護者": {
     "hp": 480,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "オニキス高原"
@@ -2764,6 +3010,7 @@
   "天つ古代賢者": {
     "hp": 588,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "月光遺跡"
@@ -2777,6 +3024,7 @@
   "月光の亡霊": {
     "hp": 412,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "月光遺跡"
@@ -2791,6 +3039,7 @@
   "月光の騎士": {
     "hp": 470,
     "attribute": "光",
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "月光遺跡"
@@ -2801,6 +3050,7 @@
   "月光の使者": {
     "hp": 539,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "月光遺跡"
@@ -2811,6 +3061,7 @@
   "時の幻影": {
     "hp": 372,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "月光遺跡"
@@ -2821,6 +3072,7 @@
   "洪水の精霊": {
     "hp": 650,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "ルナリス地下水路"
@@ -2831,6 +3083,7 @@
   "マンマーン": {
     "hp": 700,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "ルナリス地下水路"
@@ -2841,6 +3094,7 @@
   "水路の大蛇": {
     "hp": 600,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "ルナリス地下水路"
@@ -2851,6 +3105,7 @@
   "深淵海竜": {
     "hp": 900,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "ルナリス地下水路"
@@ -2861,6 +3116,7 @@
   "ミイラカンス": {
     "hp": 450,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "ルナリス地下水路"
@@ -2871,6 +3127,7 @@
   "遺跡ガニ": {
     "hp": 500,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "ルナリス地下水路"
@@ -2881,6 +3138,7 @@
   "水路の精霊": {
     "hp": 550,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "ルナリス": [
         "ルナリス地下水路"
@@ -2891,6 +3149,7 @@
   "洪水竜": {
     "hp": 2500,
     "attribute": null,
+    "memo": "BOSS",
     "spawns": {
       "ルナリス": [
         "ルナリス地下水路"
@@ -2901,6 +3160,7 @@
   "廃都の兵士": {
     "hp": 550,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "北ルナリス街道"
@@ -2911,6 +3171,7 @@
   "沈黙の亡霊": {
     "hp": 500,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "北ルナリス街道"
@@ -2921,6 +3182,7 @@
   "古代自動人形": {
     "hp": 600,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "北ルナリス街道"
@@ -2931,6 +3193,7 @@
   "虚空の単眼": {
     "hp": 450,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "北ルナリス街道"
@@ -2941,6 +3204,7 @@
   "カオスゴーレム": {
     "hp": 700,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "崩壊した宮殿外縁"
@@ -2951,6 +3215,7 @@
   "封印の亡霊": {
     "hp": 550,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "崩壊した宮殿外縁"
@@ -2961,18 +3226,21 @@
   "闇の騎士": {
     "hp": 650,
     "attribute": null,
+    "memo": null,
     "spawns": {},
     "drops": []
   },
   "王宮の守護者": {
     "hp": 600,
     "attribute": null,
+    "memo": null,
     "spawns": {},
     "drops": []
   },
   "嗤う女": {
     "hp": 700,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "封印の王宮"
@@ -2983,6 +3251,7 @@
   "光の巨像": {
     "hp": 900,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "封印の王宮"
@@ -2993,6 +3262,7 @@
   "シャドウプリンス": {
     "hp": 800,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "封印の王宮"
@@ -3003,6 +3273,7 @@
   "封印の魔術師": {
     "hp": 650,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "封印の王宮"
@@ -3013,6 +3284,7 @@
   "王宮親衛隊の残像": {
     "hp": 750,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "封印の王宮"
@@ -3023,6 +3295,7 @@
   "シールズキング": {
     "hp": 3500,
     "attribute": null,
+    "memo": "BOSS",
     "spawns": {
       "沈黙の都": [
         "封印の王宮"
@@ -3033,6 +3306,7 @@
   "古代ゴーレム": {
     "hp": 1100,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "落盤地帯"
@@ -3043,6 +3317,7 @@
   "混沌術師": {
     "hp": 700,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "落盤地帯"
@@ -3053,6 +3328,7 @@
   "心遷しの鏡": {
     "hp": 800,
     "attribute": "闇？",
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "落盤地帯"
@@ -3063,6 +3339,7 @@
   "崩壊騎士": {
     "hp": 950,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "落盤地帯"
@@ -3073,6 +3350,7 @@
   "時の亡霊": {
     "hp": 750,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "落盤地帯"
@@ -3083,6 +3361,7 @@
   "瘴気獣": {
     "hp": 850,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "落盤地帯"
@@ -3093,6 +3372,7 @@
   "始原の番兵": {
     "hp": 1300,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "落盤地帯"
@@ -3103,6 +3383,7 @@
   "封印竜": {
     "hp": 1500,
     "attribute": null,
+    "memo": null,
     "spawns": {
       "沈黙の都": [
         "落盤地帯"
@@ -3113,6 +3394,7 @@
   "封域の影鼠": {
     "hp": 300,
     "attribute": "無",
+    "memo": "１F・属性は枕さんのデータを転記",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3123,6 +3405,7 @@
   "封域の屍兵": {
     "hp": 367,
     "attribute": "闇",
+    "memo": "2F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3133,6 +3416,7 @@
   "封域の石蟹": {
     "hp": 433,
     "attribute": "無",
+    "memo": "3F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3143,6 +3427,7 @@
   "封域の闇犬": {
     "hp": 500,
     "attribute": "火",
+    "memo": "4F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3153,6 +3438,7 @@
   "封域の骸騎士": {
     "hp": 567,
     "attribute": "無",
+    "memo": "5F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3163,6 +3449,7 @@
   "封域の鉄屍": {
     "hp": 633,
     "attribute": "水",
+    "memo": "6F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3173,6 +3460,7 @@
   "封域の溶岩蝙蝠": {
     "hp": 700,
     "attribute": "無",
+    "memo": "7F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3183,6 +3471,7 @@
   "封域の呪蜘蛛": {
     "hp": 700,
     "attribute": "木",
+    "memo": "8F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3193,6 +3482,7 @@
   "封域のルーン戦士": {
     "hp": 833,
     "attribute": "無",
+    "memo": "9F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3203,6 +3493,7 @@
   "封域の虚犬": {
     "hp": 900,
     "attribute": "土",
+    "memo": "10F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3213,6 +3504,7 @@
   "封域の鉄巨像": {
     "hp": 967,
     "attribute": "無",
+    "memo": "11F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3223,6 +3515,7 @@
   "封域の呪騎士": {
     "hp": 1033,
     "attribute": "風",
+    "memo": "12F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3233,6 +3526,7 @@
   "封域の魂喰い": {
     "hp": 1100,
     "attribute": "無",
+    "memo": "13F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3243,6 +3537,7 @@
   "封域の死狼": {
     "hp": 1167,
     "attribute": "氷",
+    "memo": "14F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3253,6 +3548,7 @@
   "封域の水晶巨像": {
     "hp": 1233,
     "attribute": "無",
+    "memo": "15F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3263,6 +3559,7 @@
   "封域の恐騎士": {
     "hp": 1300,
     "attribute": "光",
+    "memo": "16F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3273,6 +3570,7 @@
   "封域の虚無術師": {
     "hp": 1367,
     "attribute": "無",
+    "memo": "17F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3283,6 +3581,7 @@
   "封域の混沌巨像": {
     "hp": 1433,
     "attribute": "音",
+    "memo": "18F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3293,6 +3592,7 @@
   "封域の影王": {
     "hp": 1500,
     "attribute": "無",
+    "memo": "19F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3303,6 +3603,7 @@
   "封域の骨竜": {
     "hp": 1567,
     "attribute": "星",
+    "memo": "20F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3313,6 +3614,7 @@
   "封域の堕聖騎": {
     "hp": 1633,
     "attribute": "無",
+    "memo": "21F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3323,6 +3625,7 @@
   "封域のルーン巨神": {
     "hp": 1700,
     "attribute": "無",
+    "memo": "22F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3333,6 +3636,7 @@
   "封域の混沌魔女": {
     "hp": 1767,
     "attribute": "闇",
+    "memo": "23F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3343,6 +3647,7 @@
   "封域の疫霊": {
     "hp": 1833,
     "attribute": "無",
+    "memo": "24F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3353,6 +3658,7 @@
   "封域の深淵魔": {
     "hp": 1900,
     "attribute": "火",
+    "memo": "25F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3363,6 +3669,7 @@
   "封域の頂狼": {
     "hp": 1967,
     "attribute": "無",
+    "memo": "26F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3373,6 +3680,7 @@
   "封域の頂蜘蛛": {
     "hp": 2033,
     "attribute": "水",
+    "memo": "27F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3383,6 +3691,7 @@
   "封域の頂影": {
     "hp": 2100,
     "attribute": "無",
+    "memo": "28F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3393,6 +3702,7 @@
   "封域の頂巨像": {
     "hp": 2167,
     "attribute": "木",
+    "memo": "29F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3403,6 +3713,7 @@
   "封域の守護騎士": {
     "hp": 2233,
     "attribute": "無",
+    "memo": "30F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3413,6 +3724,7 @@
   "封域の炎蛇": {
     "hp": 2300,
     "attribute": "土",
+    "memo": "31F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3423,6 +3735,7 @@
   "封域の氷巨像": {
     "hp": 2367,
     "attribute": "無",
+    "memo": "32F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3433,6 +3746,7 @@
   "封域の雷鳥": {
     "hp": 2433,
     "attribute": "風",
+    "memo": "33F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3443,6 +3757,7 @@
   "封域の闇竜": {
     "hp": 2500,
     "attribute": "無",
+    "memo": "34F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3453,6 +3768,7 @@
   "封域の光巨像": {
     "hp": 2567,
     "attribute": "氷",
+    "memo": "35F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3463,6 +3779,7 @@
   "封域の星術師": {
     "hp": 2633,
     "attribute": "無",
+    "memo": "36F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3473,6 +3790,7 @@
   "封域の時蛇": {
     "hp": 2700,
     "attribute": "光",
+    "memo": "37F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3483,6 +3801,7 @@
   "封域の封印獣": {
     "hp": 2767,
     "attribute": "無",
+    "memo": "38F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3493,6 +3812,7 @@
   "封域の古代騎士": {
     "hp": 2833,
     "attribute": "音",
+    "memo": "39F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3503,6 +3823,7 @@
   "封域の月光狼": {
     "hp": 2900,
     "attribute": "無",
+    "memo": "40F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3513,6 +3834,7 @@
   "封域の星竜": {
     "hp": 2967,
     "attribute": "星",
+    "memo": "41F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3523,6 +3845,7 @@
   "封域の崩壊術師": {
     "hp": 3033,
     "attribute": "無",
+    "memo": "42F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3533,6 +3856,7 @@
   "封域の瘴気王": {
     "hp": 3100,
     "attribute": "無",
+    "memo": "43F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3543,6 +3867,7 @@
   "封域の古代巨像": {
     "hp": 3167,
     "attribute": "闇",
+    "memo": "44F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3553,6 +3878,7 @@
   "封域の虚無竜": {
     "hp": 3233,
     "attribute": "無",
+    "memo": "45F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3563,6 +3889,7 @@
   "封域の封印王": {
     "hp": 3300,
     "attribute": "火",
+    "memo": "46F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3573,6 +3900,7 @@
   "封域の時の番人": {
     "hp": 3367,
     "attribute": "無",
+    "memo": "47F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3583,6 +3911,7 @@
   "封域の崩壊竜": {
     "hp": 3433,
     "attribute": "水",
+    "memo": "48F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3593,6 +3922,7 @@
   "封域の深淵騎士": {
     "hp": 3500,
     "attribute": "無",
+    "memo": "49F",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3603,6 +3933,7 @@
   "封域の覇者": {
     "hp": 8500,
     "attribute": "闇",
+    "memo": "BOSS",
     "spawns": {
       "沈黙の都": [
         "封域の塔"
@@ -3613,12 +3944,14 @@
   "黄金の番人": {
     "hp": 305,
     "attribute": null,
+    "memo": "ゴールドラッシュ",
     "spawns": {},
     "drops": []
   },
   "炉心巨像ガルガン": {
     "hp": 4692,
     "attribute": "火",
+    "memo": "ガルド",
     "spawns": {},
     "drops": [
       "巨神合金",
@@ -3629,6 +3962,7 @@
   "鉱神機テラ・マキナ": {
     "hp": 6460,
     "attribute": "土",
+    "memo": "ガルド",
     "spawns": {},
     "drops": [
       "巨神合金",
@@ -3640,6 +3974,7 @@
   "晶洞竜クリスタロス": {
     "hp": 5508,
     "attribute": "星",
+    "memo": "ガルド",
     "spawns": {},
     "drops": [
       "巨神合金",
@@ -3650,6 +3985,7 @@
   "蒼銀喰らい": {
     "hp": 4012,
     "attribute": "土",
+    "memo": null,
     "spawns": {},
     "drops": [
       "巨神合金",
@@ -3660,6 +3996,7 @@
   "翠嵐の角王": {
     "hp": 2200,
     "attribute": null,
+    "memo": "リーフィア",
     "spawns": {},
     "drops": [
       "翠環核",
@@ -3670,6 +4007,7 @@
   "古樹を喰らうもの": {
     "hp": 2596,
     "attribute": null,
+    "memo": "リーフィア",
     "spawns": {},
     "drops": [
       "翠環核",
@@ -3681,132 +4019,154 @@
   "城喰らいの黒獣": {
     "hp": 4100,
     "attribute": null,
+    "memo": "グレイウォール",
     "spawns": {},
     "drops": []
   },
   "瘴王ベルゼヴェール": {
     "hp": 5658,
     "attribute": null,
+    "memo": "グレイウォール",
     "spawns": {},
     "drops": []
   },
   "深海歌姫アビサリア": {
     "hp": 4698,
     "attribute": null,
+    "memo": "マリス",
     "spawns": {},
     "drops": []
   },
   "千枝の守護巨像": {
     "hp": 3564,
     "attribute": null,
+    "memo": "リーフィア",
     "spawns": {},
     "drops": []
   },
   "樹海王牙フェンリル": {
     "hp": 6000,
     "attribute": null,
+    "memo": "エルデ",
     "spawns": {},
     "drops": []
   },
   "千骸将モルドレッド": {
     "hp": 6642,
     "attribute": "闇？",
+    "memo": "グレイウォール／＋スタン攻撃",
     "spawns": {},
     "drops": []
   },
   "穿坑王ドリルタイラント": {
     "hp": 3400,
     "attribute": "土？",
+    "memo": "ガルド",
     "spawns": {},
     "drops": []
   },
   "腐根王マンドレイク": {
     "hp": 4050,
     "attribute": null,
+    "memo": "ハーブレン",
     "spawns": {},
     "drops": []
   },
   "赤鉄戦王グレン": {
     "hp": 6900,
     "attribute": null,
+    "memo": "ガルド",
     "spawns": {},
     "drops": []
   },
   "始祖樹ヴェルディア": {
     "hp": 4180,
     "attribute": null,
+    "memo": "リーフィア／＋毒",
     "spawns": {},
     "drops": []
   },
   "薬禍のバジリスク": {
     "hp": 2950,
     "attribute": null,
+    "memo": "ハーブレン",
     "spawns": {},
     "drops": []
   },
   "毒花后ベラドンナ": {
     "hp": 2500,
     "attribute": null,
+    "memo": null,
     "spawns": {},
     "drops": []
   },
   "霊薬竜パナケイア": {
     "hp": 4750,
     "attribute": "光？",
+    "memo": null,
     "spawns": {},
     "drops": []
   },
   "海溝皇クラーケン": {
     "hp": 5510,
     "attribute": null,
+    "memo": "マリス",
     "spawns": {},
     "drops": []
   },
   "断壁騎ヴァルグ": {
     "hp": 4838,
     "attribute": null,
+    "memo": "グレイウォール",
     "spawns": {},
     "drops": []
   },
   "灰燼祖竜シンダー": {
     "hp": 9880,
     "attribute": null,
+    "memo": "灰の宿場",
     "spawns": {},
     "drops": []
   },
   "花冠の獣皇": {
     "hp": 3036,
     "attribute": null,
+    "memo": "リーフィア",
     "spawns": {},
     "drops": []
   },
   "霧海の幽帆王": {
     "hp": 3422,
     "attribute": null,
+    "memo": "マリス",
     "spawns": {},
     "drops": []
   },
   "蒼潮牙リヴァイア": {
     "hp": 4002,
     "attribute": null,
+    "memo": "マリス",
     "spawns": {},
     "drops": []
   },
   "砕波の巨蟹": {
     "hp": 2900,
     "attribute": null,
+    "memo": "マリス",
     "spawns": {},
     "drops": []
   },
   "封印皇女レクイエム": {
     "hp": 13110,
     "attribute": null,
+    "memo": "沈黙の都",
     "spawns": {},
     "drops": []
   },
   "ルーニクス": {
     "hp": 3212,
     "attribute": "星",
+    "memo": null,
     "spawns": {},
     "drops": [
       "光の結晶",
@@ -3817,6 +4177,7 @@
   "ルーンヴァルト": {
     "hp": 5318,
     "attribute": "星",
+    "memo": null,
     "spawns": {},
     "drops": [
       "アステル晶片",
@@ -3826,6 +4187,7 @@
   "ガルノス": {
     "hp": 3748,
     "attribute": "土",
+    "memo": null,
     "spawns": {},
     "drops": [
       "銅鉱石",
@@ -3836,6 +4198,7 @@
   "フランメル": {
     "hp": 3060,
     "attribute": "火",
+    "memo": null,
     "spawns": {},
     "drops": [
       "火の結晶",
@@ -3846,6 +4209,7 @@
   "マグナリオス": {
     "hp": 6242,
     "attribute": "火",
+    "memo": "やけど スタン",
     "spawns": {},
     "drops": [
       "鉄ゴーレムの装甲",
@@ -3855,6 +4219,7 @@
   "ドルメクス": {
     "hp": 4570,
     "attribute": "土",
+    "memo": null,
     "spawns": {},
     "drops": [
       "ノームの宝石",
@@ -3864,6 +4229,7 @@
   "ステラリム": {
     "hp": 3128,
     "attribute": "星",
+    "memo": null,
     "spawns": {},
     "drops": [
       "光の結晶",
@@ -3875,6 +4241,7 @@
   "プリズマルク": {
     "hp": 5780,
     "attribute": "光",
+    "memo": "DEXダウン",
     "spawns": {},
     "drops": [
       "水晶",
@@ -3885,6 +4252,7 @@
   "ザルドニクス": {
     "hp": 4420,
     "attribute": "星",
+    "memo": null,
     "spawns": {},
     "drops": [
       "竜骨石",
@@ -3896,6 +4264,7 @@
   "オルビタリス": {
     "hp": 6800,
     "attribute": "星",
+    "memo": "BOSS　MATKダウン　MDEFダウン　スタン",
     "spawns": {},
     "drops": [
       "オルビス星核",
@@ -3908,9 +4277,17 @@
   "クォルツァ": {
     "hp": 3427,
     "attribute": "光",
+    "memo": null,
     "spawns": {},
     "drops": [
       "水晶"
     ]
+  },
+  "ノクティラ": {
+    "hp": 3400,
+    "attribute": null,
+    "memo": null,
+    "spawns": {},
+    "drops": []
   }
 }

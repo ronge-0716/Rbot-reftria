@@ -202,6 +202,12 @@ module.exports = {
                 ? monster.attribute
                 : '未設定';
 
+
+        const memoText =
+            monster.memo
+                ? monster.memo
+                : 'なし';
+
         //--------------------------------
         // ドロップ
         //--------------------------------
@@ -229,29 +235,24 @@ module.exports = {
                 .setTitle(monsterName)
                 .addFields(
                     {
-                        name: 'HP',
-                        value: hpText,
-                        inline: true
-                    },
-                    {
-                        name: '属性',
-                        value: attributeText,
-                        inline: true
-                    },
-                    {
                         name: '出現場所',
                         value:
                             areaText ||
                             '情報なし'
                     },
                     {
-                        name:
-                            'ドロップアイテム',
+                        name: 'ステータス',
+                        value:
+                            `・ＨＰ：${hpText}\n` +
+                            `・属性：${attributeText}\n` +
+                            `・備考：${memoText}`
+                    },
+                    {
+                        name: 'ドロップアイテム',
                         value:
                             dropText
                     }
                 )
-                .setTimestamp();
 
         await interaction.reply({
             embeds: [embed]
