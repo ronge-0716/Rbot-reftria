@@ -2,6 +2,7 @@ const cron = require('node-cron');
 const { exec } = require('child_process');
 
 const { downloadAllSheets } = require('./download');
+const { downloadMonsterData } = require('./downloadMonsterData');
 const { checkUpdates, sendLatestUpdate } = require('./checkUpdates');
 
 async function updateData() {
@@ -9,6 +10,8 @@ async function updateData() {
         console.log('データ更新開始');
 
         await downloadAllSheets();
+
+        await downloadMonsterData();
 
         await new Promise((resolve, reject) => {
             exec('node scripts/convert.js', (error, stdout, stderr) => {
@@ -45,9 +48,7 @@ async function updateData() {
     }
 }
 
-
 function startScheduler(client) {
-
     updateData();
 
     checkUpdates(client);
@@ -64,10 +65,7 @@ function startScheduler(client) {
     }, {
         timezone: 'Asia/Tokyo'
     });
-
-    console.log('Scheduler started.');
 }
-
 
 module.exports = {
     startScheduler

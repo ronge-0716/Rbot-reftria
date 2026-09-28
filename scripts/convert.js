@@ -1,16 +1,21 @@
-﻿const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const areas = {};
 const dungeons = {};
 const monsters = {};
 const items = {};
 
-const csvFolder = path.join(__dirname, "..", "csv");
+const csvFolder = './csv';
+const monsterDataFile = 'monster_data.csv';
 
 const csvFiles = fs
     .readdirSync(csvFolder)
-    .filter(file => file.endsWith('.csv'));
+    .filter(
+        file =>
+            file.endsWith('.csv') &&
+            file !== monsterDataFile
+    );
 
 function addUnique(array, value) {
     if (!array.includes(value)) {
@@ -18,8 +23,97 @@ function addUnique(array, value) {
     }
 }
 
-for (const file of csvFiles) {
+function parseCsv(text) {
+    const rows = [];
+    let row = [];
+    let field = '';
+    let inQuotes = false;
 
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const next = text[i + 1];
+
+        if (inQuotes) {
+            if (char === '"' && next === '"') {
+                field += '"';
+                i++;
+            } else if (char === '"') {
+                inQuotes = false;
+            } else {
+                field += char;
+            }
+            continue;
+        }
+
+        if (char === '"') {
+            inQuotes = true;
+            continue;
+        }
+
+        if (char === ',') {
+            row.push(field.trim());
+            field = '';
+            continue;
+        }
+
+        if (char === '\n') {
+            row.push(field.trim());
+            rows.push(row);
+            row = [];
+            field = '';
+            continue;
+        }
+
+        if (char === '\r') {
+            continue;
+        }
+
+        field += char;
+    }
+
+    if (field.length > 0 || row.length > 0) {
+        row.push(field.trim());
+        rows.push(row);
+    }
+
+    return rows;
+}
+
+function ensureItem(itemName) {
+    if (!items[itemName]) {
+        items[itemName] = {
+            gather: {},
+            monsters: {}
+        };
+    }
+
+    return items[itemName];
+}
+
+function ensureDungeon(region, dungeonName) {
+    if (!dungeons[dungeonName]) {
+        dungeons[dungeonName] = {
+            region,
+            gathering: [],
+            monsters: []
+        };
+    }
+
+    if (!areas[region]) {
+        areas[region] = {
+            dungeons: []
+        };
+    }
+
+    addUnique(
+        areas[region].dungeons,
+        dungeonName
+    );
+
+    return dungeons[dungeonName];
+}
+
+for (const file of csvFiles) {
     const content = fs.readFileSync(
         path.join(csvFolder, file),
         'utf8'
@@ -34,36 +128,18 @@ for (const file of csvFiles) {
     let currentDungeon = null;
 
     for (const line of lines) {
-
         const cols = line
             .split(',')
             .map(x => x.trim())
-            .filter(x => x !== '');
+            .filter(Boolean);
 
         if (cols.length === 0) continue;
 
-        // 「採　取」「採取（釣り）」→「採取」
-        cols[0] = cols[0]
-            .replace(/採\s*取（釣り）/g, '採取')
-            .replace(/採\s*取/g, '採取');
-
-        // AP情報を含むセルを削除
-        for (let i = cols.length - 1; i >= 1; i--) {
-            if (/AP/i.test(cols[i])) {
-                cols.splice(i, 1);
-            }
-        }
-
-        // 「敵なし」は無視
-        if (cols[0] === '敵なし') {
-            continue;
-        }
-
-        // ダンジョン名の前後の空白を除去
-        cols[0] = cols[0].trim();
-
         const first = cols[0];
 
+        //----------------------------------
+        // 地域
+        //----------------------------------
         if (
             first.startsWith('🏰') ||
             first.startsWith('🌿') ||
@@ -75,173 +151,290 @@ for (const file of csvFiles) {
             first.startsWith('🕍') ||
             first.startsWith('🔨')
         ) {
-
             currentRegion = first
                 .replace(/^[^\p{L}\p{N}ぁ-んァ-ヶ一-龠ー]+/u, '')
                 .trim();
 
             if (!areas[currentRegion]) {
-
                 areas[currentRegion] = {
                     dungeons: []
                 };
             }
 
+            currentDungeon = null;
             continue;
         }
 
+        //----------------------------------
+        // ダンジョン
+        //----------------------------------
         if (
             cols.length === 1 &&
             currentRegion
         ) {
-
             currentDungeon = first;
 
-            if (!dungeons[currentDungeon]) {
-
-                dungeons[currentDungeon] = {
-                    region: currentRegion,
-                    gathering: [],
-                    monsters: []
-                };
-            }
-
-            addUnique(
-                areas[currentRegion].dungeons,
+            ensureDungeon(
+                currentRegion,
                 currentDungeon
             );
 
             continue;
         }
 
+        //----------------------------------
+        // 採取
+        //----------------------------------
         if (
             first === '採取' &&
             currentDungeon
         ) {
-
             const gatherItems = cols.slice(1);
+            const dungeonData =
+                dungeons[currentDungeon];
 
-            for (const item of gatherItems) {
-
-                const itemName = item.trim();
-
-                if (!itemName) continue;
-
+            for (const itemName of gatherItems) {
                 addUnique(
-                    dungeons[currentDungeon].gathering,
+                    dungeonData.gathering,
                     itemName
                 );
 
-                if (!items[itemName]) {
+                const item = ensureItem(itemName);
 
-                    items[itemName] = {
-                        gather: {},
-                        monsters: {}
-                    };
-                }
-
-                if (
-                    !items[itemName].gather[currentRegion]
-                ) {
-
-                    items[itemName].gather[currentRegion] = [];
+                if (!item.gather[currentRegion]) {
+                    item.gather[currentRegion] = [];
                 }
 
                 addUnique(
-                    items[itemName]
-                        .gather[currentRegion],
+                    item.gather[currentRegion],
                     currentDungeon
                 );
-            }
-
-            continue;
-        }
-
-        if (
-            currentDungeon &&
-            cols.length >= 2
-        ) {
-
-            const monsterName = cols[0].trim();
-            const drops = cols.slice(1);
-
-            addUnique(
-                dungeons[currentDungeon].monsters,
-                monsterName
-            );
-
-            if (!monsters[monsterName]) {
-
-                monsters[monsterName] = {
-                    spawns: {},
-                    drops: []
-                };
-            }
-
-            if (
-                !monsters[monsterName]
-                    .spawns[currentRegion]
-            ) {
-
-                monsters[monsterName]
-                    .spawns[currentRegion] = [];
-            }
-
-            addUnique(
-                monsters[monsterName]
-                    .spawns[currentRegion],
-                currentDungeon
-            );
-
-            for (const drop of drops) {
-
-                addUnique(
-                    monsters[monsterName].drops,
-                    drop
-                );
-
-                if (!items[drop]) {
-
-                    items[drop] = {
-                        gather: {},
-                        monsters: {}
-                    };
-                }
-
-                if (
-                    !items[drop]
-                        .monsters[monsterName]
-                ) {
-
-                    items[drop]
-                        .monsters[monsterName] = [];
-                }
-
-                const exists =
-                    items[drop]
-                        .monsters[monsterName]
-                        .some(
-                            x =>
-                                x.region === currentRegion &&
-                                x.dungeon === currentDungeon
-                        );
-
-                if (!exists) {
-
-                    items[drop]
-                        .monsters[monsterName]
-                        .push({
-                            region: currentRegion,
-                            dungeon: currentDungeon
-                        });
-                }
             }
         }
     }
 }
 
+function loadMonsterData() {
+    const filePath =
+        path.join(csvFolder, monsterDataFile);
+
+    if (!fs.existsSync(filePath)) {
+        throw new Error(
+            `${filePath} が見つかりません。`
+        );
+    }
+
+    const content = fs.readFileSync(
+        filePath,
+        'utf8'
+    ).replace(/^\uFEFF/, '');
+
+    const rows = parseCsv(content);
+
+    if (rows.length < 5) {
+        throw new Error(
+            'モンスターデータCSVの行数が不足しています。'
+        );
+    }
+
+    const header = rows[2] || [];
+    const dungeonHeader = rows[3] || [];
+
+    const nameIndex = header.indexOf('名称');
+    const attributeIndex = header.indexOf('属性');
+    const hpIndex = header.indexOf('HP');
+    const dropsIndex = header.indexOf('ドロップ');
+    const memoIndex = header.indexOf('メモ');
+    const spawnStartIndex =
+        memoIndex >= 0
+            ? memoIndex + 1
+            : 8;
+
+    if (
+        nameIndex === -1 ||
+        attributeIndex === -1 ||
+        hpIndex === -1 ||
+        dropsIndex === -1
+    ) {
+        throw new Error(
+            'モンスターデータCSVの必要な列（名称・属性・HP・ドロップ）が見つかりません。'
+        );
+    }
+
+    let currentRegion = null;
+    let spawnColumns = [];
+
+    for (
+        let columnIndex = spawnStartIndex;
+        columnIndex < Math.max(header.length, dungeonHeader.length);
+        columnIndex++
+    ) {
+        if (header[columnIndex]) {
+            currentRegion = header[columnIndex];
+        }
+
+        const dungeon =
+            dungeonHeader[columnIndex] || '';
+
+        if (
+            currentRegion &&
+            dungeon
+        ) {
+            spawnColumns.push({
+                index: columnIndex,
+                region: currentRegion,
+                dungeon
+            });
+        }
+    }
+
+    let loadedRows = 0;
+
+    for (let rowIndex = 4; rowIndex < rows.length; rowIndex++) {
+        const row = rows[rowIndex];
+        const monsterName =
+            (row[nameIndex] || '').trim();
+
+        if (!monsterName) continue;
+
+        if (
+            monsterName === '▼ 追加用はこちらに'
+        ) {
+            continue;
+        }
+
+        loadedRows++;
+
+        const attribute =
+            (row[attributeIndex] || '').trim() || null;
+
+        const hpText =
+            (row[hpIndex] || '').trim();
+
+        const hp =
+            /^\d+$/.test(hpText)
+                ? Number(hpText)
+                : null;
+
+        const dropText =
+            (row[dropsIndex] || '').trim();
+
+        const drops = dropText
+            .split('・')
+            .map(x => x.trim())
+            .filter(Boolean);
+
+        if (!monsters[monsterName]) {
+            monsters[monsterName] = {
+                hp: null,
+                attribute: null,
+                spawns: {},
+                drops: []
+            };
+        }
+
+        const monster = monsters[monsterName];
+
+        // 重複行がある場合は、片方が空欄なら埋める。
+        // 値が食い違っている場合は曖昧なためnullにする。
+        if (hp !== null) {
+            if (monster.hp === null) {
+                monster.hp = hp;
+            } else if (monster.hp !== hp) {
+                console.warn(
+                    `[警告] ${monsterName} のHPが一致しません: ${monster.hp} / ${hp}`
+                );
+                monster.hp = null;
+            }
+        }
+
+        if (attribute !== null) {
+            if (monster.attribute === null) {
+                monster.attribute = attribute;
+            } else if (monster.attribute !== attribute) {
+                console.warn(
+                    `[警告] ${monsterName} の属性が一致しません: ${monster.attribute} / ${attribute}`
+                );
+                monster.attribute = null;
+            }
+        }
+
+        for (const drop of drops) {
+            addUnique(
+                monster.drops,
+                drop
+            );
+
+            const item = ensureItem(drop);
+
+            if (!item.monsters[monsterName]) {
+                item.monsters[monsterName] = [];
+            }
+        }
+
+        for (const spawn of spawnColumns) {
+            const cell =
+                (row[spawn.index] || '').trim();
+
+            if (!/^[◯〇○]$/.test(cell)) {
+                continue;
+            }
+
+            if (!monster.spawns[spawn.region]) {
+                monster.spawns[spawn.region] = [];
+            }
+
+            addUnique(
+                monster.spawns[spawn.region],
+                spawn.dungeon
+            );
+
+            const dungeonData =
+                ensureDungeon(
+                    spawn.region,
+                    spawn.dungeon
+                );
+
+            addUnique(
+                dungeonData.monsters,
+                monsterName
+            );
+
+            for (const drop of drops) {
+                const item = ensureItem(drop);
+
+                if (!item.monsters[monsterName]) {
+                    item.monsters[monsterName] = [];
+                }
+
+                const locations =
+                    item.monsters[monsterName];
+
+                const exists = locations.some(
+                    x =>
+                        x.region === spawn.region &&
+                        x.dungeon === spawn.dungeon
+                );
+
+                if (!exists) {
+                    locations.push({
+                        region: spawn.region,
+                        dungeon: spawn.dungeon
+                    });
+                }
+            }
+        }
+    }
+
+    console.log(
+        `[モンスター] ${loadedRows}行読み込みました。`
+    );
+}
+
+loadMonsterData();
+
 fs.writeFileSync(
-    path.join(__dirname, "..", "data", "areas.json"),
+    './data/areas.json',
     JSON.stringify(
         areas,
         null,
@@ -251,7 +444,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(
-    path.join(__dirname, "..", "data", "dungeons.json"),
+    './data/dungeons.json',
     JSON.stringify(
         dungeons,
         null,
@@ -261,7 +454,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(
-    path.join(__dirname, "..", "data", "monsters.json"),
+    './data/monsters.json',
     JSON.stringify(
         monsters,
         null,
@@ -271,7 +464,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(
-    path.join(__dirname, "..", "data", "items.json"),
+    './data/items.json',
     JSON.stringify(
         items,
         null,

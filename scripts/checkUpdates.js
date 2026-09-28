@@ -3,7 +3,7 @@ const path = require('node:path');
 
 const UPDATE_URL = 'https://rpg-reftria.com/api/system/news';
 
-const CHANNEL_ID = '650975683098443777';
+const CHANNEL_ID = '1521494699121049621';
 
 const STATE_PATH = path.join(__dirname, 'updateState.json');
 

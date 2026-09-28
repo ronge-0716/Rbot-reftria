@@ -1,10 +1,17 @@
-﻿const {
+const fs = require('node:fs');
+const path = require('node:path');
+
+const {
     SlashCommandBuilder,
     EmbedBuilder,
     MessageFlags
 } = require('discord.js');
 
-const loadJson = require("../../utils/load");
+const MONSTERS_PATH =
+    path.join(__dirname, '../../data/monsters.json');
+
+const AREAS_PATH =
+    path.join(__dirname, '../../data/areas.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -21,8 +28,22 @@ module.exports = {
 
     async execute(interaction) {
 
-        const monsters = loadJson("monsters.json");
-        const areas = loadJson("areas.json");
+        // 毎回最新のJSONを読み込む
+        const monsters =
+            JSON.parse(
+                fs.readFileSync(
+                    MONSTERS_PATH,
+                    'utf8'
+                )
+            );
+
+        const areas =
+            JSON.parse(
+                fs.readFileSync(
+                    AREAS_PATH,
+                    'utf8'
+                )
+            );
 
         const searchWord =
             interaction.options
@@ -31,16 +52,19 @@ module.exports = {
 
         let matches = [];
 
+        //--------------------------------
         // 完全一致
+        //--------------------------------
         matches = Object.keys(monsters)
             .filter(name =>
                 name.toLowerCase() ===
                 searchWord.toLowerCase()
             );
 
+        //--------------------------------
         // 前方一致
+        //--------------------------------
         if (matches.length === 0) {
-
             matches = Object.keys(monsters)
                 .filter(name =>
                     name.toLowerCase()
@@ -50,9 +74,10 @@ module.exports = {
                 );
         }
 
+        //--------------------------------
         // 部分一致
+        //--------------------------------
         if (matches.length === 0) {
-
             matches = Object.keys(monsters)
                 .filter(name =>
                     name.toLowerCase()
@@ -62,9 +87,10 @@ module.exports = {
                 );
         }
 
+        //--------------------------------
         // 見つからない
+        //--------------------------------
         if (matches.length === 0) {
-
             return interaction.reply({
                 content:
                     `「${searchWord}」の情報は見つかりませんでした。`,
@@ -72,9 +98,10 @@ module.exports = {
             });
         }
 
-        // 候補複数
+        //--------------------------------
+        // 候補が複数
+        //--------------------------------
         if (matches.length > 1) {
-
             const embed =
                 new EmbedBuilder()
                     .setTitle(
@@ -99,11 +126,10 @@ module.exports = {
         const monster =
             monsters[monsterName];
 
+        //--------------------------------
+        // 出現場所
+        //--------------------------------
         let areaText = '';
-
-        //--------------------------------
-        // areas.json順で表示
-        //--------------------------------
 
         for (const region of Object.keys(areas)) {
 
@@ -118,32 +144,30 @@ module.exports = {
             }
 
             areaText +=
-                `【${region}】\n`;
+                `〖${region}〗\n`;
 
             const orderedDungeons =
-                areas[region].dungeons;
+                areas[region].dungeons || [];
 
-            // areas.jsonに登録された順
+            // areas.jsonの順番で表示
             for (const dungeon of orderedDungeons) {
 
                 if (
-                    !spawnDungeons.includes(
+                    spawnDungeons.includes(
                         dungeon
                     )
                 ) {
-                    continue;
+                    areaText +=
+                        `・${dungeon}\n`;
                 }
-
-                areaText +=
-                    `・${dungeon}\n`;
             }
 
-            // areas.jsonに無いダンジョン対策
+            // areas.jsonにないダンジョン
             const remaining =
                 spawnDungeons
-                    .filter(d =>
+                    .filter(dungeon =>
                         !orderedDungeons.includes(
-                            d
+                            dungeon
                         )
                     )
                     .sort((a, b) =>
@@ -154,7 +178,6 @@ module.exports = {
                     );
 
             for (const dungeon of remaining) {
-
                 areaText +=
                     `・${dungeon}\n`;
             }
@@ -163,32 +186,58 @@ module.exports = {
         }
 
         //--------------------------------
-        // ドロップアイテム
+        // HP
         //--------------------------------
+        const hpText =
+            monster.hp !== null &&
+                monster.hp !== undefined
+                ? String(monster.hp)
+                : '未設定';
 
+        //--------------------------------
+        // 属性
+        //--------------------------------
+        const attributeText =
+            monster.attribute
+                ? monster.attribute
+                : '未設定';
+
+        //--------------------------------
+        // ドロップ
+        //--------------------------------
         const dropText =
             monster.drops?.length
-                ? [...new Set(
-                    monster.drops
-                )]
+                ? [...new Set(monster.drops)]
                     .sort((a, b) =>
                         a.localeCompare(
                             b,
                             'ja'
                         )
                     )
-                    .map(x => `・${x}`)
+                    .map(
+                        item =>
+                            `・${item}`
+                    )
                     .join('\n')
                 : 'なし';
 
         //--------------------------------
         // Embed
         //--------------------------------
-
         const embed =
             new EmbedBuilder()
                 .setTitle(monsterName)
                 .addFields(
+                    {
+                        name: 'HP',
+                        value: hpText,
+                        inline: true
+                    },
+                    {
+                        name: '属性',
+                        value: attributeText,
+                        inline: true
+                    },
                     {
                         name: '出現場所',
                         value:
