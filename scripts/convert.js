@@ -5,6 +5,7 @@ const areas = {};
 const dungeons = {};
 const monsters = {};
 const items = {};
+const legacyDrops = {};
 
 const csvFolder = './csv';
 const monsterDataFile = 'monster_data.csv';
@@ -211,6 +212,31 @@ for (const file of csvFiles) {
                 );
             }
         }
+
+        //----------------------------------
+        // モンスター・旧ドロップ
+        //----------------------------------
+        if (
+            currentDungeon &&
+            cols.length >= 2
+        ) {
+            const monsterName = cols[0];
+            const drops = cols
+                .slice(1)
+                .filter(Boolean);
+
+            if (!legacyDrops[monsterName]) {
+                legacyDrops[monsterName] = [];
+            }
+
+            for (const drop of drops) {
+                addUnique(
+                    legacyDrops[monsterName],
+                    drop
+                );
+            }
+        }
+
     }
 }
 
@@ -329,6 +355,11 @@ function loadMonsterData() {
             .map(x => x.trim())
             .filter(Boolean);
 
+        const effectiveDrops =
+            drops.length > 0
+                ? drops
+                : (legacyDrops[monsterName] || []);
+
         if (!monsters[monsterName]) {
             monsters[monsterName] = {
                 hp: null,
@@ -376,7 +407,7 @@ function loadMonsterData() {
             }
         }
 
-        for (const drop of drops) {
+        for (const drop of effectiveDrops) {
             addUnique(
                 monster.drops,
                 drop
@@ -417,7 +448,7 @@ function loadMonsterData() {
                 monsterName
             );
 
-            for (const drop of drops) {
+            for (const drop of effectiveDrops) {
                 const item = ensureItem(drop);
 
                 if (!item.monsters[monsterName]) {
