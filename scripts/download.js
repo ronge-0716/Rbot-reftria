@@ -67,6 +67,12 @@ const sheets = [
         sheetId: "1BQ5839ygAVSv5aUpUv_drIDv7iAHijfnTiIcYwAeeUc",
         gid: "1251908581",
         file: "./csv/沈黙.csv"
+    },
+    {
+        name: "ランダンボス",
+        sheetId: "1BQ5839ygAVSv5aUpUv_drIDv7iAHijfnTiIcYwAeeUc",
+        gid: "59426422",
+        file: "./csv/ランダンボス.csv"
     }
 ];
 
