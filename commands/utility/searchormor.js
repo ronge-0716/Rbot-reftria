@@ -1,7 +1,10 @@
 const {
     SlashCommandBuilder,
     EmbedBuilder,
-    MessageFlags
+    MessageFlags,
+    ActionRowBuilder,
+    ButtonBuilder,
+    ButtonStyle
 } = require('discord.js');
 
 const ELEMENTS = [
@@ -24,10 +27,12 @@ const RULES = {
 
 function countElements(equipment) {
     const counts = {};
+
     for (const element of equipment) {
         if (element === '無') continue;
         counts[element] = (counts[element] || 0) + 1;
     }
+
     return counts;
 }
 
@@ -48,7 +53,7 @@ function calculateDamage(targetElement, counts) {
     return multiplier;
 }
 
-// 装備組み合わせ生成
+// 装備属性の組み合わせを生成
 function generateCombinations(slotCount) {
     const results = [];
 
@@ -67,14 +72,6 @@ function generateCombinations(slotCount) {
 
     dfs(0, slotCount, {});
     return results;
-}
-
-// 表示用
-function formatCombination(combo) {
-    return ELEMENTS
-        .filter(e => combo[e] > 0)
-        .map(e => `${e}×${combo[e]}`)
-        .join(' ');
 }
 
 module.exports = {
@@ -99,18 +96,26 @@ module.exports = {
         ),
 
     async execute(interaction) {
-
         const slotCount = interaction.options.getInteger('部位');
         const input = interaction.options.getString('敵属性').trim();
-
         const targets = [...input];
 
-        const invalid = targets.find(x => !ELEMENTS.includes(x));
+        if (targets.length === 0) {
+            return interaction.reply({
+                content: '敵属性を入力してください。',
+                flags: MessageFlags.Ephemeral
+            });
+        }
+
+        const invalid = targets.find(
+            element => !ELEMENTS.includes(element)
+        );
 
         if (invalid) {
             return interaction.reply({
                 content:
-                    `不明な属性です: ${invalid}\n使用可能属性: ${ELEMENTS.join('、')}`,
+                    `不明な属性です: ${invalid}\n` +
+                    `使用可能属性: ${ELEMENTS.join('、')}`,
                 flags: MessageFlags.Ephemeral
             });
         }
@@ -118,68 +123,82 @@ module.exports = {
         const combinations = generateCombinations(slotCount);
 
         const evaluated = combinations.map(combo => {
-
-            const counts = combo;
-
-            const damages = {};
+            const counts = countElements(
+                ELEMENTS.flatMap(element =>
+                    Array(combo[element] || 0).fill(element)
+                )
+            );
 
             let total = 0;
 
             for (const target of targets) {
-                const value = calculateDamage(target, counts);
-                damages[target] = (damages[target] || []).concat(value);
-                total += value;
+                total += calculateDamage(target, counts);
             }
 
             return {
                 combo,
-                average: total / targets.length,
-                damages
+                average: total / targets.length
             };
         });
 
+        // 平均被ダメージ倍率が低い順
         evaluated.sort((a, b) => a.average - b.average);
 
         const top = evaluated.slice(0, 10);
 
-        const lines = top.map((x, i) => {
-
-            const equip = ELEMENTS
-                .filter(e => x.combo[e] > 0)
-                .map(e =>
-                    x.combo[e] === 1
-                        ? e
-                        : `${e}×${x.combo[e]}`
+        const lines = top.map((result, index) => {
+            const equipment = ELEMENTS
+                .filter(element => result.combo[element] > 0)
+                .map(element =>
+                    result.combo[element] === 1
+                        ? element
+                        : `${element}×${result.combo[element]}`
                 )
-                .join(" ");
+                .join(' ');
 
-            const shown = [...new Set(targets)];
-
-            // const detail = shown
-            //     .map(element => {
-
-            //         const arr = x.damages[element];
-            //         const avg =
-            //             arr.reduce((a, b) => a + b, 0) / arr.length;
-
-            //         return `${element}:${(avg * 100).toFixed(2)}%`;
-
-            //     })
-            //     .join(" ");
-            const detail = "";
-
-            return `${i + 1}位 (平均${(x.average * 100).toFixed(2)}%) ${equip}　${detail}`;
-
+            return (
+                `${index + 1}位 ` +
+                `(平均${(result.average * 100).toFixed(2)}%) ` +
+                `${equipment}`
+            );
         });
 
+        // 1つの構成につき1つのボタンを生成
+        const buttons = top.map((result, index) => {
+            // 属性の順番に10桁の数字で個数を保存
+            // 例: 火0、水2、氷0、木2 ... → 0202...
+            const comboCode = ELEMENTS
+                .map(element => result.combo[element] || 0)
+                .join('');
+
+            return new ButtonBuilder()
+                .setCustomId(`searcharmor:attribute:${comboCode}`)
+                .setLabel(`${index + 1}位：被ダメ計算`)
+                .setStyle(ButtonStyle.Primary);
+        });
+
+        // 1行5個、合計2行
+        const buttonRows = [];
+
+        for (let i = 0; i < buttons.length; i += 5) {
+            buttonRows.push(
+                new ActionRowBuilder().addComponents(
+                    buttons.slice(i, i + 5)
+                )
+            );
+        }
+
         const embed = new EmbedBuilder()
-            .setTitle("最適防具属性構成")
+            .setTitle('最適防具属性構成')
             .setDescription(
-                `装備部位: ${slotCount}\n敵属性: ${targets.join("")}\n\n${lines.join("\n\n")}`
+                `装備部位: ${slotCount}\n` +
+                `敵属性: ${targets.join('')}\n\n` +
+                lines.join('\n\n')
             );
 
         await interaction.reply({
-            embeds: [embed]
+            embeds: [embed],
+            components: buttonRows
         });
     }
 };

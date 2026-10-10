@@ -187,6 +187,79 @@ client.on(Events.InteractionCreate, async (interaction) => {
         return;
     }
 
+    // searcharmor の被ダメージ計算ボタン
+    if (
+        interaction.isButton() &&
+        interaction.customId.startsWith('searcharmor:attribute:')
+    ) {
+        const [, , comboCode] = interaction.customId.split(':');
+
+        // 不正なボタンIDを拒否
+        if (!/^\d{10}$/.test(comboCode)) {
+            return interaction.reply({
+                content: '防具構成を読み取れませんでした。',
+                flags: MessageFlags.Ephemeral
+            });
+        }
+
+        const elements = [
+            '火', '水', '氷', '木', '風',
+            '土', '光', '闇', '音', '星'
+        ];
+
+        // ボタンIDから装備構成を復元
+        const equipmentInput = elements
+            .map((element, index) => {
+                const count = Number(comboCode[index]);
+
+                if (count === 0) return null;
+
+                return count === 1
+                    ? element
+                    : `${element}×${count}`;
+            })
+            .filter(Boolean)
+            .join(' ');
+
+        const attributeCommand =
+            interaction.client.commands.get('attribute');
+
+        if (!attributeCommand) {
+            return interaction.reply({
+                content: 'attribute コマンドが見つかりません。',
+                flags: MessageFlags.Ephemeral
+            });
+        }
+
+        // 既存の attribute コマンドに装備構成を渡す
+        const fakeInteraction = {
+            options: {
+                getString: name =>
+                    name === '属性' ? equipmentInput : null
+            },
+            reply: payload => interaction.reply(payload)
+        };
+
+        try {
+            await attributeCommand.execute(fakeInteraction);
+        } catch (error) {
+            console.error('防具構成の被ダメ計算エラー:', error);
+
+            const payload = {
+                content: '被ダメージ計算中にエラーが発生しました。',
+                flags: MessageFlags.Ephemeral
+            };
+
+            if (interaction.replied || interaction.deferred) {
+                await interaction.followUp(payload);
+            } else {
+                await interaction.reply(payload);
+            }
+        }
+
+        return;
+    }
+
     if (interaction.isButton() && interaction.customId.startsWith('selector:')) {
         const parts = interaction.customId.split(':');
         const [, commandName, ownerId] = parts;
